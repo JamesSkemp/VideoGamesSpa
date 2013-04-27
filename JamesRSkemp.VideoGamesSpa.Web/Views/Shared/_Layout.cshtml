@@ -18,23 +18,25 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<div class="container">
-
+					<ul class="nav nav-pills" data-ng-controller="NavbarController">
+						<li data-ng-class="{'active':getClass('/home')}"><a href="#/home">Home</a></li>
+						<li data-ng-class="{'active':getClass('/profile')}"><a href="#/profile">Profile</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
-		<div id="header">
-			<div id="title">
-				<h1>Video Games SPA for James Skemp</h1>
-			</div>
-			<div id="menucontainer">
-				<ul id="menu">
-					<li>@Html.ActionLink("Home", "Index", "Home")</li>
-				</ul>
+		<div id="header" class="container">
+			<div class="row">
+				<div id="title" class="span12">
+					<h1>Video Games SPA for James Skemp</h1>
+				</div>
 			</div>
 		</div>
-		<div id="main">
-			@RenderBody()
+		<div id="main" class="container">
+			<div class="row">
+				@RenderBody()
+			</div>
 		</div>
 		<div id="footer">
 			<div class="navbar">
