@@ -6,6 +6,10 @@ app.config(function ($routeProvider) {
 			controller: 'HomeController',
 			templateUrl: '/app/partials/home.html'
 		})
+		.when('/games', {
+			controller: 'GamesController',
+			templateUrl: '/app/partials/games.html'
+		})
 		.when('/profile', {
 			controller: 'ProfileController',
 			templateUrl: '/app/partials/profile.html'

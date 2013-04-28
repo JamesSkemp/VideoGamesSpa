@@ -1,0 +1,15 @@
+﻿<h2>games</h2>
+<div data-ng-controller="GamesController">
+	{{games.length}}
+	<ul>
+		<li data-ng-repeat="game in games | startFrom:currentPage*pageSize | limitTo:pageSize">{{game.Title}} ({{game.System}})
+		</li>
+	</ul>
+	<button data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button data-ng-disabled="currentPage >= data.length/pageSize - 1" data-ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+</div>
