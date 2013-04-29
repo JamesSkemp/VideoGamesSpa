@@ -134,17 +134,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\json\VideoGames.json" />
-    <Content Include="Content\json\_combinedStats.xml.json" />
-    <Content Include="Content\json\_psnGames.xml.json" />
-    <Content Include="Content\json\_psnGamesBasic.xml.json" />
-    <Content Include="Content\json\_psnProfile.xml.json" />
-    <Content Include="Content\json\_psnStats.xml.json" />
-    <Content Include="Content\json\_psnTrophies.xml.json" />
-    <Content Include="Content\json\_xblAchievements.xml.json" />
-    <Content Include="Content\json\_xblGames.xml.json" />
-    <Content Include="Content\json\_xblGamesBasic.xml.json" />
-    <Content Include="Content\json\_xblProfile.xml.json" />
-    <Content Include="Content\json\_xblStats.xml.json" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />

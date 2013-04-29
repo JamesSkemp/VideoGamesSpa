@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECCD8C28-500C-4F54-845D-51BD040F9840}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleWebsite</RootNamespace>
+    <AssemblyName>SimpleWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\controllers\controllers.js" />
+    <Content Include="app\partials\games.html" />
+    <Content Include="app\partials\home.html" />
+    <Content Include="app\partials\profile.html" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\psnPic.png" />
+    <Content Include="Content\images\psn\NPWR00071_00.png" />
+    <Content Include="Content\images\psn\NPWR00116_00.png" />
+    <Content Include="Content\images\psn\NPWR00117_00.png" />
+    <Content Include="Content\images\psn\NPWR00129_00.png" />
+    <Content Include="Content\images\psn\NPWR00133_00.png" />
+    <Content Include="Content\images\psn\NPWR00160_00.png" />
+    <Content Include="Content\images\psn\NPWR00163_00.png" />
+    <Content Include="Content\images\psn\NPWR00181_00.png" />
+    <Content Include="Content\images\psn\NPWR00187_00.png" />
+    <Content Include="Content\images\psn\NPWR00196_00.png" />
+    <Content Include="Content\images\psn\NPWR00234_00.png" />
+    <Content Include="Content\images\psn\NPWR00254_00.png" />
+    <Content Include="Content\images\psn\NPWR00261_00.png" />
+    <Content Include="Content\images\psn\NPWR00324_00.png" />
+    <Content Include="Content\images\psn\NPWR00346_00.png" />
+    <Content Include="Content\images\psn\NPWR00350_00.png" />
+    <Content Include="Content\images\psn\NPWR00352_00.png" />
+    <Content Include="Content\images\psn\NPWR00362_00.png" />
+    <Content Include="Content\images\psn\NPWR00374_00.png" />
+    <Content Include="Content\images\psn\NPWR00388_00.png" />
+    <Content Include="Content\images\psn\NPWR00389_00.png" />
+    <Content Include="Content\images\psn\NPWR00408_00.png" />
+    <Content Include="Content\images\psn\NPWR00413_00.png" />
+    <Content Include="Content\images\psn\NPWR00449_00.png" />
+    <Content Include="Content\images\psn\NPWR00462_00.png" />
+    <Content Include="Content\images\psn\NPWR00489_00.png" />
+    <Content Include="Content\images\psn\NPWR00494_00.png" />
+    <Content Include="Content\images\psn\NPWR00501_00.png" />
+    <Content Include="Content\images\psn\NPWR00502_00.png" />
+    <Content Include="Content\images\psn\NPWR00533_00.png" />
+    <Content Include="Content\images\psn\NPWR00542_00.png" />
+    <Content Include="Content\images\psn\NPWR00558_00.png" />
+    <Content Include="Content\images\psn\NPWR00585_00.png" />
+    <Content Include="Content\images\psn\NPWR00590_00.png" />
+    <Content Include="Content\images\psn\NPWR00594_00.png" />
+    <Content Include="Content\images\psn\NPWR00597_00.png" />
+    <Content Include="Content\images\psn\NPWR00603_00.png" />
+    <Content Include="Content\images\psn\NPWR00605_00.png" />
+    <Content Include="Content\images\psn\NPWR00612_00.png" />
+    <Content Include="Content\images\psn\NPWR00623_00.png" />
+    <Content Include="Content\images\psn\NPWR00644_00.png" />
+    <Content Include="Content\images\psn\NPWR00650_00.png" />
+    <Content Include="Content\images\psn\NPWR00660_00.png" />
+    <Content Include="Content\images\psn\NPWR00672_00.png" />
+    <Content Include="Content\images\psn\NPWR00691_00.png" />
+    <Content Include="Content\images\psn\NPWR00714_00.png" />
+    <Content Include="Content\images\psn\NPWR00716_00.png" />
+    <Content Include="Content\images\psn\NPWR00727_00.png" />
+    <Content Include="Content\images\psn\NPWR00734_00.png" />
+    <Content Include="Content\images\psn\NPWR00737_00.png" />
+    <Content Include="Content\images\psn\NPWR00772_00.png" />
+    <Content Include="Content\images\psn\NPWR00773_00.png" />
+    <Content Include="Content\images\psn\NPWR00774_00.png" />
+    <Content Include="Content\images\psn\NPWR00777_00.png" />
+    <Content Include="Content\images\psn\NPWR00825_00.png" />
+    <Content Include="Content\images\psn\NPWR00843_00.png" />
+    <Content Include="Content\images\psn\NPWR00845_00.png" />
+    <Content Include="Content\images\psn\NPWR00851_00.png" />
+    <Content Include="Content\images\psn\NPWR00867_00.png" />
+    <Content Include="Content\images\psn\NPWR00881_00.png" />
+    <Content Include="Content\images\psn\NPWR00885_00.png" />
+    <Content Include="Content\images\psn\NPWR00940_00.png" />
+    <Content Include="Content\images\psn\NPWR00956_00.png" />
+    <Content Include="Content\images\psn\NPWR01007_00.png" />
+    <Content Include="Content\images\psn\NPWR01028_00.png" />
+    <Content Include="Content\images\psn\NPWR01032_00.png" />
+    <Content Include="Content\images\psn\NPWR01097_00.png" />
+    <Content Include="Content\images\psn\NPWR01101_00.png" />
+    <Content Include="Content\images\psn\NPWR01103_00.png" />
+    <Content Include="Content\images\psn\NPWR01116_00.png" />
+    <Content Include="Content\images\psn\NPWR01119_00.png" />
+    <Content Include="Content\images\psn\NPWR01125_00.png" />
+    <Content Include="Content\images\psn\NPWR01135_00.png" />
+    <Content Include="Content\images\psn\NPWR01173_00.png" />
+    <Content Include="Content\images\psn\NPWR01188_00.png" />
+    <Content Include="Content\images\psn\NPWR01216_00.png" />
+    <Content Include="Content\images\psn\NPWR01226_00.png" />
+    <Content Include="Content\images\psn\NPWR01251_00.png" />
+    <Content Include="Content\images\psn\NPWR01265_00.png" />
+    <Content Include="Content\images\psn\NPWR01275_00.png" />
+    <Content Include="Content\images\psn\NPWR01285_00.png" />
+    <Content Include="Content\images\psn\NPWR01295_00.png" />
+    <Content Include="Content\images\psn\NPWR01298_00.png" />
+    <Content Include="Content\images\psn\NPWR01320_00.png" />
+    <Content Include="Content\images\psn\NPWR01341_00.png" />
+    <Content Include="Content\images\psn\NPWR01359_00.png" />
+    <Content Include="Content\images\psn\NPWR01375_00.png" />
+    <Content Include="Content\images\psn\NPWR01390_00.png" />
+    <Content Include="Content\images\psn\NPWR01392_00.png" />
+    <Content Include="Content\images\psn\NPWR01431_00.png" />
+    <Content Include="Content\images\psn\NPWR01433_00.png" />
+    <Content Include="Content\images\psn\NPWR01435_00.png" />
+    <Content Include="Content\images\psn\NPWR01442_00.png" />
+    <Content Include="Content\images\psn\NPWR01444_00.png" />
+    <Content Include="Content\images\psn\NPWR01452_00.png" />
+    <Content Include="Content\images\psn\NPWR01455_00.png" />
+    <Content Include="Content\images\psn\NPWR01460_00.png" />
+    <Content Include="Content\images\psn\NPWR01490_00.png" />
+    <Content Include="Content\images\psn\NPWR01503_00.png" />
+    <Content Include="Content\images\psn\NPWR01559_00.png" />
+    <Content Include="Content\images\psn\NPWR01588_00.png" />
+    <Content Include="Content\images\psn\NPWR01589_00.png" />
+    <Content Include="Content\images\psn\NPWR01605_00.png" />
+    <Content Include="Content\images\psn\NPWR01640_00.png" />
+    <Content Include="Content\images\psn\NPWR01642_00.png" />
+    <Content Include="Content\images\psn\NPWR01662_00.png" />
+    <Content Include="Content\images\psn\NPWR01663_00.png" />
+    <Content Include="Content\images\psn\NPWR01682_00.png" />
+    <Content Include="Content\images\psn\NPWR01692_00.png" />
+    <Content Include="Content\images\psn\NPWR01717_00.png" />
+    <Content Include="Content\images\psn\NPWR01741_00.png" />
+    <Content Include="Content\images\psn\NPWR01742_00.png" />
+    <Content Include="Content\images\psn\NPWR01743_00.png" />
+    <Content Include="Content\images\psn\NPWR01744_00.png" />
+    <Content Include="Content\images\psn\NPWR01745_00.png" />
+    <Content Include="Content\images\psn\NPWR01748_00.png" />
+    <Content Include="Content\images\psn\NPWR01757_00.png" />
+    <Content Include="Content\images\psn\NPWR01758_00.png" />
+    <Content Include="Content\images\psn\NPWR01831_00.png" />
+    <Content Include="Content\images\psn\NPWR01839_00.png" />
+    <Content Include="Content\images\psn\NPWR01865_00.png" />
+    <Content Include="Content\images\psn\NPWR01898_00.png" />
+    <Content Include="Content\images\psn\NPWR01992_00.png" />
+    <Content Include="Content\images\psn\NPWR02044_00.png" />
+    <Content Include="Content\images\psn\NPWR02163_00.png" />
+    <Content Include="Content\images\psn\NPWR02172_00.png" />
+    <Content Include="Content\images\psn\NPWR02174_00.png" />
+    <Content Include="Content\images\psn\NPWR02268_00.png" />
+    <Content Include="Content\images\psn\NPWR02372_00.png" />
+    <Content Include="Content\images\psn\NPWR02376_00.png" />
+    <Content Include="Content\images\psn\NPWR02380_00.png" />
+    <Content Include="Content\images\psn\NPWR02391_00.png" />
+    <Content Include="Content\images\psn\NPWR02457_00.png" />
+    <Content Include="Content\images\psn\NPWR02497_00.png" />
+    <Content Include="Content\images\psn\NPWR02569_00.png" />
+    <Content Include="Content\images\psn\NPWR02645_00.png" />
+    <Content Include="Content\images\psn\NPWR02712_00.png" />
+    <Content Include="Content\images\psn\NPWR02868_00.png" />
+    <Content Include="Content\images\psn\NPWR02972_00.png" />
+    <Content Include="Content\images\psn\NPWR02978_00.png" />
+    <Content Include="Content\images\psn\NPWR03002_00.png" />
+    <Content Include="Content\images\psn\NPWR03134_00.png" />
+    <Content Include="Content\images\psn\NPWR03267_00.png" />
+    <Content Include="Content\images\psn\NPWR03268_00.png" />
+    <Content Include="Content\images\psn\NPWR03484_00.png" />
+    <Content Include="Content\images\psn\NPWR03485_00.png" />
+    <Content Include="Content\images\psn\NPWR03503_00.png" />
+    <Content Include="Content\images\psn\NPWR03593_00.png" />
+    <Content Include="Content\images\psn\NPWR03632_00.png" />
+    <Content Include="Content\images\xblPic.png" />
+    <Content Include="Content\images\xbl\1096157146.jpg" />
+    <Content Include="Content\images\xbl\1096157149.jpg" />
+    <Content Include="Content\images\xbl\1096157170.jpg" />
+    <Content Include="Content\images\xbl\1112737745.jpg" />
+    <Content Include="Content\images\xbl\1112737749.jpg" />
+    <Content Include="Content\images\xbl\1112737755.jpg" />
+    <Content Include="Content\images\xbl\1112737766.jpg" />
+    <Content Include="Content\images\xbl\1128466400.jpg" />
+    <Content Include="Content\images\xbl\1129121749.jpg" />
+    <Content Include="Content\images\xbl\1146095594.jpg" />
+    <Content Include="Content\images\xbl\1161889811.jpg" />
+    <Content Include="Content\images\xbl\1161889840.jpg" />
+    <Content Include="Content\images\xbl\1161889984.jpg" />
+    <Content Include="Content\images\xbl\1161889998.jpg" />
+    <Content Include="Content\images\xbl\1161889999.jpg" />
+    <Content Include="Content\images\xbl\1161890070.jpg" />
+    <Content Include="Content\images\xbl\1179846617.jpg" />
+    <Content Include="Content\images\xbl\1229391835.jpg" />
+    <Content Include="Content\images\xbl\1263405072.jpg" />
+    <Content Include="Content\images\xbl\1263470590.jpg" />
+    <Content Include="Content\images\xbl\1279330258.jpg" />
+    <Content Include="Content\images\xbl\1279330263.jpg" />
+    <Content Include="Content\images\xbl\1279330271.jpg" />
+    <Content Include="Content\images\xbl\1297287122.jpg" />
+    <Content Include="Content\images\xbl\1297287125.jpg" />
+    <Content Include="Content\images\xbl\1297287131.jpg" />
+    <Content Include="Content\images\xbl\1297287132.jpg" />
+    <Content Include="Content\images\xbl\1297287135.jpg" />
+    <Content Include="Content\images\xbl\1297287142.jpg" />
+    <Content Include="Content\images\xbl\1297287144.jpg" />
+    <Content Include="Content\images\xbl\1297287153.jpg" />
+    <Content Include="Content\images\xbl\1297287162.jpg" />
+    <Content Include="Content\images\xbl\1297287213.jpg" />
+    <Content Include="Content\images\xbl\1297287339.jpg" />
+    <Content Include="Content\images\xbl\1297287369.jpg" />
+    <Content Include="Content\images\xbl\1297287392.jpg" />
+    <Content Include="Content\images\xbl\1297287405.jpg" />
+    <Content Include="Content\images\xbl\1297287647.jpg" />
+    <Content Include="Content\images\xbl\1297290145.jpg" />
+    <Content Include="Content\images\xbl\1297290148.jpg" />
+    <Content Include="Content\images\xbl\1297290152.jpg" />
+    <Content Include="Content\images\xbl\1297290172.jpg" />
+    <Content Include="Content\images\xbl\1313671128.jpg" />
+    <Content Include="Content\images\xbl\1313671145.jpg" />
+    <Content Include="Content\images\xbl\1313671179.jpg" />
+    <Content Include="Content\images\xbl\1396901878.jpg" />
+    <Content Include="Content\images\xbl\1397032979.jpg" />
+    <Content Include="Content\images\xbl\1397819348.jpg" />
+    <Content Include="Content\images\xbl\1397819354.jpg" />
+    <Content Include="Content\images\xbl\1397819355.jpg" />
+    <Content Include="Content\images\xbl\1397819364.jpg" />
+    <Content Include="Content\images\xbl\1397819368.jpg" />
+    <Content Include="Content\images\xbl\1413679061.jpg" />
+    <Content Include="Content\images\xbl\1414596582.jpg" />
+    <Content Include="Content\images\xbl\1414596758.jpg" />
+    <Content Include="Content\images\xbl\1414793176.jpg" />
+    <Content Include="Content\images\xbl\1431504870.jpg" />
+    <Content Include="Content\images\xbl\1464993828.jpg" />
+    <Content Include="Content\images\xbl\1480656849.jpg" />
+    <Content Include="Content\images\xbl\1480656864.jpg" />
+    <Content Include="Content\images\xbl\1480656888.jpg" />
+    <Content Include="Content\images\xbl\1480657075.jpg" />
+    <Content Include="Content\images\xbl\1480657102.jpg" />
+    <Content Include="Content\images\xbl\1480657115.jpg" />
+    <Content Include="Content\images\xbl\1480657142.jpg" />
+    <Content Include="Content\images\xbl\1480657163.jpg" />
+    <Content Include="Content\images\xbl\1480657242.jpg" />
+    <Content Include="Content\images\xbl\1480657339.jpg" />
+    <Content Include="Content\images\xbl\1480657349.jpg" />
+    <Content Include="Content\images\xbl\1480657361.jpg" />
+    <Content Include="Content\images\xbl\1480657520.jpg" />
+    <Content Include="Content\images\xbl\1480657521.jpg" />
+    <Content Include="Content\images\xbl\1480657766.jpg" />
+    <Content Include="Content\images\xbl\1480657785.jpg" />
+    <Content Include="Content\images\xbl\1480659548.jpg" />
+    <Content Include="Content\images\_accomplishments.png" />
+    <Content Include="Content\images\_accomplishments20.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\VideoGameProfile.css" />
+    <Content Include="Default.html" />
+    <Content Include="Scripts\angular-bootstrap-prettify.js" />
+    <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
+    <Content Include="Scripts\angular-bootstrap.js" />
+    <Content Include="Scripts\angular-bootstrap.min.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-loader.js" />
+    <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-scenario.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\i18n\angular-locale_af-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_af-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_af.js" />
+    <Content Include="Scripts\i18n\angular-locale_am-et.js" />
+    <Content Include="Scripts\i18n\angular-locale_am.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ae.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-bh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-dz.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-eg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-jo.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-kw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-lb.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ly.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-om.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-qa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sy.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-tn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ye.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar.js" />
+    <Content Include="Scripts\i18n\angular-locale_bg-bg.js" />
+    <Content Include="Scripts\i18n\angular-locale_bg.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn-bd.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-ad.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_chr.js" />
+    <Content Include="Scripts\i18n\angular-locale_cs-cz.js" />
+    <Content Include="Scripts\i18n\angular-locale_cs.js" />
+    <Content Include="Scripts\i18n\angular-locale_cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_da-dk.js" />
+    <Content Include="Scripts\i18n\angular-locale_da.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-at.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-li.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_de.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-gr.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-polyton.js" />
+    <Content Include="Scripts\i18n\angular-locale_el.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-as.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-au.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dsrt-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dsrt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-fm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gy.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ie.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-iso.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-jm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mh.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mp.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pr.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-um.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vi.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-zw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-zz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-419.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ar.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-bo.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cl.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-co.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cr.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-do.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ea.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ec.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-gt.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-hn.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ic.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-mx.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ni.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pa.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pe.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pr.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-py.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-sv.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-uy.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ve.js" />
+    <Content Include="Scripts\i18n\angular-locale_es.js" />
+    <Content Include="Scripts\i18n\angular-locale_et-ee.js" />
+    <Content Include="Scripts\i18n\angular-locale_et.js" />
+    <Content Include="Scripts\i18n\angular-locale_eu-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_eu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa-af.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa.js" />
+    <Content Include="Scripts\i18n\angular-locale_fi-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fil-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_fil.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bj.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bl.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ci.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-dj.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ga.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gn.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gp.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-km.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mc.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mq.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-re.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-rw.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-sn.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-td.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-tg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-yt.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_gl-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_gl.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw.js" />
+    <Content Include="Scripts\i18n\angular-locale_gu-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_gu.js" />
+    <Content Include="Scripts\i18n\angular-locale_haw.js" />
+    <Content Include="Scripts\i18n\angular-locale_he-il.js" />
+    <Content Include="Scripts\i18n\angular-locale_he.js" />
+    <Content Include="Scripts\i18n\angular-locale_hi-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_hi.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr-hr.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr.js" />
+    <Content Include="Scripts\i18n\angular-locale_hu-hu.js" />
+    <Content Include="Scripts\i18n\angular-locale_hu.js" />
+    <Content Include="Scripts\i18n\angular-locale_id-id.js" />
+    <Content Include="Scripts\i18n\angular-locale_id.js" />
+    <Content Include="Scripts\i18n\angular-locale_in.js" />
+    <Content Include="Scripts\i18n\angular-locale_is-is.js" />
+    <Content Include="Scripts\i18n\angular-locale_is.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-it.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-sm.js" />
+    <Content Include="Scripts\i18n\angular-locale_it.js" />
+    <Content Include="Scripts\i18n\angular-locale_iw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ja-jp.js" />
+    <Content Include="Scripts\i18n\angular-locale_ja.js" />
+    <Content Include="Scripts\i18n\angular-locale_kn-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_kn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko-kr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-cg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln.js" />
+    <Content Include="Scripts\i18n\angular-locale_lt-lt.js" />
+    <Content Include="Scripts\i18n\angular-locale_lt.js" />
+    <Content Include="Scripts\i18n\angular-locale_lv-lv.js" />
+    <Content Include="Scripts\i18n\angular-locale_lv.js" />
+    <Content Include="Scripts\i18n\angular-locale_ml-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_mr-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_mr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms-bn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms-my.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms.js" />
+    <Content Include="Scripts\i18n\angular-locale_mt-mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-aw.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-cw.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-sx.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_no.js" />
+    <Content Include="Scripts\i18n\angular-locale_or-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_or.js" />
+    <Content Include="Scripts\i18n\angular-locale_pl-pl.js" />
+    <Content Include="Scripts\i18n\angular-locale_pl.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-ao.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-br.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-gw.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-mz.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-pt.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-st.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro-md.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro-ro.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-md.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-ua.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_sk-sk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sl-si.js" />
+    <Content Include="Scripts\i18n\angular-locale_sl.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq-al.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-me.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-me.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv-se.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-lk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta.js" />
+    <Content Include="Scripts\i18n\angular-locale_te-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_te.js" />
+    <Content Include="Scripts\i18n\angular-locale_th-th.js" />
+    <Content Include="Scripts\i18n\angular-locale_th.js" />
+    <Content Include="Scripts\i18n\angular-locale_tl-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_tl.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr-tr.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr.js" />
+    <Content Include="Scripts\i18n\angular-locale_uk-ua.js" />
+    <Content Include="Scripts\i18n\angular-locale_uk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur.js" />
+    <Content Include="Scripts\i18n\angular-locale_vi-vn.js" />
+    <Content Include="Scripts\i18n\angular-locale_vi.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant-mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant-tw.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh.js" />
+    <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Content\json\_combinedStats.xml.json" />
+    <Content Include="Content\json\_psnGames.xml.json" />
+    <Content Include="Content\json\_psnGamesBasic.xml.json" />
+    <Content Include="Content\json\_psnProfile.xml.json" />
+    <Content Include="Content\json\_psnStats.xml.json" />
+    <Content Include="Content\json\_psnTrophies.xml.json" />
+    <Content Include="Content\json\_xblAchievements.xml.json" />
+    <Content Include="Content\json\_xblGames.xml.json" />
+    <Content Include="Content\json\_xblGamesBasic.xml.json" />
+    <Content Include="Content\json\_xblProfile.xml.json" />
+    <Content Include="Content\json\_xblStats.xml.json" />
+    <Content Include="Content\json\VideoGames.json" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\directives\" />
+    <Folder Include="app\services\" />
+    <Folder Include="app\views\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50825/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,291 @@
+﻿/* Styles for video games area. */
+body
+{
+	/*background-color:#666;
+	color:#fff;*/
+	/*padding-top: 60px;*/
+	padding-bottom: 40px;
+}
+
+	body #main
+	{
+		color: #696969;
+	}
+
+	body #title
+	{
+		float: none;
+	}
+
+.sidebar-nav
+{
+	padding: 9px 0;
+}
+
+#profileHeader
+{
+	background-color: #ddd;
+	color: #666;
+	display: none;
+	font-size: 18px;
+	height: 30px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	z-index: 99;
+}
+
+	#profileHeader > div
+	{
+		display: inline-block;
+	}
+
+		#profileHeader > div > span
+		{
+			line-height: 30px;
+			padding-right: 12px;
+			vertical-align: top;
+		}
+
+	#profileHeader .profilePic
+	{
+		height: 24px;
+		margin-top: 3px;
+		padding-left: 48px;
+		width: 24px;
+	}
+
+	#profileHeader span.accomplishments span
+	{
+		background-image: url(/Content/Projects/VideoGameProfile/_accomplishments20.png);
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		padding-top: 3px;
+		padding-right: 39px;
+	}
+
+	#profileHeader span.accomplishments.trophiesTotal span
+	{
+		background-position: -244px 0;
+	}
+
+	#profileHeader span.accomplishments.trophiesBronze span
+	{
+		background-position: 0px 0;
+	}
+
+	#profileHeader span.accomplishments.trophiesSilver span
+	{
+		background-position: -61px 0;
+	}
+
+	#profileHeader span.accomplishments.trophiesGold span
+	{
+		background-position: -123px 0;
+	}
+
+	#profileHeader span.accomplishments.trophiesPlatinum span
+	{
+		background-position: -184px 0;
+	}
+
+	#profileHeader span.accomplishments.gamerscore span
+	{
+		background-position: -305px 0;
+	}
+
+	#profileHeader span.accomplishments.achievements span
+	{
+		background-position: -244px 0;
+	}
+
+#header
+{
+	margin-top: 24px;
+}
+
+
+/* profile */
+span.percent
+{
+	color: #aaa;
+	font-size: .75em;
+}
+
+	span.percent.percent100
+	{
+		color: black;
+		font-weight: bold;
+	}
+
+	span.percent.percent75
+	{
+		color: green;
+	}
+
+	span.percent.percent50
+	{
+		color: blue;
+	}
+
+	span.percent.percent25
+	{
+		color: orange;
+	}
+
+	span.percent.percent0
+	{
+		color: red;
+	}
+
+.videoGameProfile
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 48%;
+}
+
+	/*.videoGameProfile h3
+	{
+		border-bottom: 1px solid;
+		margin-right: 15px;
+		margin-left: 9px;
+	}*/
+
+	.videoGameProfile .profileDetails
+	{
+		padding-right: 15px;
+		padding-left: 9px;
+	}
+
+	.videoGameProfile .pic
+	{
+		float: left;
+		margin: 6px;
+		width: 64px;
+	}
+
+		.videoGameProfile .pic img
+		{
+			width: 64px;
+		}
+
+	.videoGameProfile .profileBasics
+	{
+		margin-left: 76px;
+		min-height: 180px;
+	}
+
+		.videoGameProfile .profileBasics .psnTrophies div
+		{
+			padding-left: 9px;
+		}
+
+	.videoGameProfile .name
+	{
+		font-size: 1.05em;
+		font-weight: bold;
+	}
+
+	.videoGameProfile .pointCompares
+	{
+		margin: auto 3px;
+	}
+
+		.videoGameProfile .pointCompares .percent
+		{
+			display: block;
+			margin-left: 15px;
+		}
+
+#psnProfile
+{
+}
+#xblProfile
+{
+}
+.videoGameBasics
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 48%;
+}
+
+	.videoGameBasics h3
+	{
+		border-bottom: 1px solid;
+		margin-right: 15px;
+		margin-left: 9px;
+	}
+
+	.videoGameBasics ol
+	{
+		font-size: .9em;
+	}
+
+		.videoGameBasics ol div
+		{
+			font-size: .9em;
+		}
+
+	.videoGameBasics span.percent
+	{
+		font-size: .8em;
+	}
+
+#videoGameDetails
+{
+}
+	#videoGameDetails h2
+	{
+		margin-bottom:0;
+	}
+	#videoGameDetails .lastPlayed
+	{
+		font-size:.9em;
+		font-style:italic;
+		margin-bottom:1em;
+	}
+	#videoGameDetails.videoGamesPsn
+	{
+	}
+	#videoGameDetails.videoGamesXbl
+	{
+	}
+
+	#videoGameDetails .graphic, #videoGameDetails .details
+	{
+		display:inline-block;
+		vertical-align:top;
+		width:48%;
+	}
+		#videoGameDetails.videoGamesPsn .graphic, #videoGameDetails.videoGamesPsn .graphic img
+		{
+			width:200px;
+		}
+		#videoGameDetails.videoGamesXbl .graphic, #videoGameDetails.videoGamesXbl .graphic img
+		{
+			width:80px;
+		}
+	#videoGameDetails .graphic
+	{	text-align:right;
+	}
+	#videoGameDetails .details
+	{
+		padding-left:1em;
+	}
+#accomplishments .enabled
+{
+	text-decoration:line-through;
+}
+#accomplishments .earned li span
+{
+	font-size:.7em;
+	font-style:italic;
+}
+#accomplishments .unearned li:hover
+{
+	cursor:pointer;
+}

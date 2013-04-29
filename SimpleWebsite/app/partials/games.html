@@ -1,0 +1,27 @@
+﻿<h2>games</h2>
+<div data-ng-controller="GamesController">
+	<!--<a href="" data-ng-click="own=''">all</a> | <a href="" data-ng-click="own='yes'">currently own</a>-->
+	<br />
+	<button class="btn" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button class="btn" data-ng-disabled="currentPage >= data.length/pageSize - 1" data-ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+	<div style="margin:1em 0;" data-ng-repeat="game in games | orderBy:'Title' | startFrom:currentPage*pageSize | limitTo:pageSize">
+		<span style="font-size:120%;font-weight:bold;">{{game.Title}}</span>
+		- {{game.System}}
+		<div style="margin:1em 0;">
+			Bought {{game.Date}}
+			for ${{game.Price}}
+			at {{game.Place}}
+		</div>
+		<div style="margin:1em 0;" data-ng-show="game.Own=='no'">
+			Sold {{game.SellDate}}
+			for ${{game.SellPrice}}
+			at {{game.SellPlace}}
+		</div>
+		<div style="font-style:italic;margin-left:1em;">{{game.Notes}}</div>
+	</div>
+</div>

@@ -1,0 +1,165 @@
+﻿<h2>Profile</h2>
+<div id="videoGameProfile" data-ng-controller="ProfileController">
+	<div class="row-fluid">
+		<div id="psnProfile" class="span6 videoGameProfile">
+			<h3>PlayStation Network</h3>
+			<div class="profileDetails">
+				<div class="pic"><img src="/Content/images/psnPic.png" alt="strivinglife" /></div>
+				<div class="profileBasics">
+					<div class="name">{{psnProfile.Id}}</div>
+					<div>Level: {{psnProfile.Level}} <span class="percent">({{psnProfile.LevelProgress}}%)</span></div>
+					<div>Points: {{psnProfile.Points}} / {{psnProfile.NextLevelPoints}}</div>
+					<div class="psnTrophies">
+						Trophies: {{psnProfile.Trophies}}
+						<div>Bronze: {{psnProfile.TrophiesBronze}}</div>
+						<div>Silver: {{psnProfile.TrophiesSilver}}</div>
+						<div>Gold: {{psnProfile.TrophiesGold}}</div>
+						<div>Platinum: {{psnProfile.TrophiesPlatinum}}</div>
+					</div>
+					<div>
+						<div>Total games: {{psnProfile.TotalGames}}</div>
+					</div>
+				</div>
+				<div class="pointCompares">
+					<h4>PlayStation Network Trophies</h4>
+					<!--todo--><div>Points: {{psnProfile.Points}} of {{psnProfile.PossiblePoints}} <span class="percent percent25">(44.477%)</span></div>
+					<div style="margin-left:2em;">
+						<!--todo-->50% = {{Math.round(psnProfile.PossiblePoints * .50)}} (8168 / 545 bronze trophies)<br />
+						<!--todo-->75% = {{Math.round(psnProfile.PossiblePoints * .75)}} (45139 / 3010 bronze trophies)<br />
+					</div>
+					<div class="psnTrophies">
+						<!--todo-->Trophies: {{psnProfile.Trophies}} of {{psnProfile.PossibleTrophies}} <span class="percent percent50">(50.674%)</span>
+						<div style="margin-left:2em;">
+							<!--todo-->50% = {{Math.round(psnProfile.PossibleTrophies * .50)}} (-38)<br />
+							<!--todo-->75% = {{Math.round(psnProfile.PossibleTrophies * .75)}} (1371)<br />
+						</div>
+						<!--todo--><div>Bronze: {{psnProfile.TrophiesBronze}} of {{psnProfile.PossibleTrophiesBronze}} <span class="percent percent50">(55.021%)</span></div>
+						<!--todo--><div>Silver: {{psnProfile.TrophiesSilver}} of {{psnProfile.PossibleTrophiesSilver}} <span class="percent percent25">(41.373%)</span></div>
+						<!--todo--><div>Gold: {{psnProfile.TrophiesGold}} of {{psnProfile.PossibleTrophiesGold}} <span class="percent percent25">(40.964%)</span></div>
+						<!--todo--><div>Platinum: {{psnProfile.TrophiesPlatinum}} of {{psnProfile.PossibleTrophiesPlatinum}} <span class="percent percent0">(20.652%)</span></div>
+					</div>
+				</div>
+			</div>
+			<!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+		</div>
+		<div id="xblProfile" class="span6 videoGameProfile">
+			<h3>Xbox Live</h3>
+			<div class="profileDetails">
+				<div class="pic"><img src="/Content/images/xblPic.png" alt="strivinglife" /></div>
+				<div class="profileBasics">
+					<div class="name">{{xblProfile.Id}}</div>
+					<div>Gamerscore: {{xblProfile.GamerScore}}</div>
+					<div>Achievements: {{xblProfile.Achievements}}</div>
+					<div>
+						<div>Total games: {{xblProfile.TotalGames}}</div>
+					</div>
+				</div>
+				<div class="pointCompares">
+					<h4>Xbox Live Achievements</h4>
+					<!--todo--><div>Gamerscore: {{xblProfile.GamerScore}} of {{xblProfile.PossibleGamerScore}} <span class="percent percent25">(42.706%)</span></div>
+					<div style="margin-left:2em;">
+						<!--todo-->50% = {{Math.round(xblProfile.PossibleGamerScore * .50)}} (4882)<br />
+						<!--todo-->75% = {{Math.round(xblProfile.PossibleGamerScore * .75)}} (21615)<br />
+					</div>
+					<!--todo--><div>Achievements: {{xblProfile.Achievements}} of {{xblProfile.PossibleAchievements}} <span class="percent percent25">(48.126%)</span></div>
+					<div style="margin-left:2em;">
+						<!--todo-->50% = {{Math.round(xblProfile.PossibleAchievements * .50)}} (56)<br />
+						<!--todo-->75% = {{Math.round(xblProfile.PossibleAchievements * .75)}} (796)<br />
+					</div>
+				</div>
+			</div>
+			<!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+		</div>
+	</div>
+	<div class="hero-unit">
+		<h2>Static data</h2>
+		<p>This data is a raw copy of the render code, and will eventually be removed.</p>
+	</div>
+	<div class="row-fluid">
+		<div id="psnProfileOld" class="span6 videoGameProfile">
+			<h3>PlayStation Network</h3>
+			<div class="profileDetails">
+				<div class="pic"><img src="/Content/images/psnPic.png" alt="strivinglife" /></div>
+				<div class="profileBasics">
+					<div class="name">strivinglife</div>
+					<div>Level: 18 <span class="percent">(22%)</span></div>
+					<div>Points: 65775 / 72000</div>
+					<div class="psnTrophies">
+						Trophies: 2856
+						<div>
+							Bronze: 2197
+						</div>
+						<div>
+							Silver: 470
+						</div>
+						<div>
+							Gold: 170
+						</div>
+						<div>
+							Platinum: 19
+						</div>
+					</div>
+					<div>
+						<div>Total games: 149</div>
+					</div>
+				</div>
+				<div class="pointCompares">
+					<h4>PlayStation Network Trophies</h4>
+					<div>Points: 65775 of 147885 <span class="percent percent25">(44.477%)</span></div>
+					<div style="margin-left:2em;">
+						50% = 73943 (8168 / 545 bronze trophies)<br />
+						75% = 110914 (45139 / 3010 bronze trophies)<br />
+					</div>
+					<div class="psnTrophies">
+						Trophies: 2856 of 5636 <span class="percent percent50">(50.674%)</span>
+						<div style="margin-left:2em;">
+							50% = 2818 (-38)<br />
+							75% = 4227 (1371)<br />
+						</div>
+						<div>
+							Bronze: 2197 of 3993 <span class="percent percent50">(55.021%)</span>
+						</div>
+						<div>
+							Silver: 470 of 1136 <span class="percent percent25">(41.373%)</span>
+						</div>
+						<div>
+							Gold: 170 of 415 <span class="percent percent25">(40.964%)</span>
+						</div>
+						<div>
+							Platinum: 19 of 92 <span class="percent percent0">(20.652%)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+		</div>
+		<div id="xblProfileOld" class="span6 videoGameProfile">
+			<h3>Xbox Live</h3>
+			<div class="profileDetails">
+				<div class="pic"><img src="/Content/images/xblPic.png" alt="strivinglife" /></div>
+				<div class="profileBasics">
+					<div class="name">strivinglife</div>
+					<div>Gamerscore: 28583</div>
+					<div>Achievements: 1425</div>
+					<div>
+						<div>Total games: 75</div>
+					</div>
+				</div>
+				<div class="pointCompares">
+					<h4>Xbox Live Achievements</h4>
+					<div>Gamerscore: 28583 of 66930 <span class="percent percent25">(42.706%)</span></div>
+					<div style="margin-left:2em;">
+												50% = 33465 (4882)<br />
+												75% = 50198 (21615)<br />
+					</div>
+					<div>Achievements: 1425 of 2961 <span class="percent percent25">(48.126%)</span></div>
+					<div style="margin-left:2em;">
+												50% = 1481 (56)<br />
+												75% = 2221 (796)<br />
+					</div>
+				</div>
+			</div>
+			<!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+		</div>
+	</div>
+</div>
