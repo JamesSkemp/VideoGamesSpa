@@ -15,9 +15,6 @@ app.controller('GamesController', function ($scope, $http) {
 	$scope.numberOfPages = function () {
 		return Math.ceil($scope.games.length / $scope.pageSize);
 	}
-	// TODO not working
-	//$scope.orderProp = 'System';
-	//console.log($scope);
 });
 
 app.controller('ProfileController', function ($scope, $http, $window) {
@@ -37,12 +34,21 @@ app.controller('ProfileController', function ($scope, $http, $window) {
 		$scope.xblPointsPercent = 100 * data.XblProfile.GamerScore / data.XblProfile.PossibleGamerScore;
 		$scope.xblAchievementsPercent = 100 * data.XblProfile.Achievements / data.XblProfile.PossibleAchievements;
 	});
-	// todo remove once these are handled by the controller/model
-	$scope.Math = window.Math;
-
 	$scope.percentClass = function (percent) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
+	$scope.quantityToPercent = function (obtained, total, percent) {
+		if (total * percent / 100 <= obtained) {
+			return "";
+		} else {
+			//50% = {{Math.round(xblProfile.PossibleAchievements * .50)}} (56)
+			var numberAtPercent = $window.Math.round(total * percent / 100);
+			return percent + "% = " + numberAtPercent + " (" + (numberAtPercent - obtained) + ")";
+		}
+	};
+
+	// todo remove once these are handled by the controller/model
+	$scope.Math = window.Math;
 });
 
 app.controller('NavbarController', function ($scope, $location) {
