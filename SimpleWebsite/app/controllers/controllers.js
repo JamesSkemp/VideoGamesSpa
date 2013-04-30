@@ -20,7 +20,7 @@ app.controller('GamesController', function ($scope, $http) {
 	//console.log($scope);
 });
 
-app.controller('ProfileController', function ($scope, $http) {
+app.controller('ProfileController', function ($scope, $http, $window) {
 	$scope.psnProfile = [];
 	$scope.xblProfile = [];
 	$http.get('Content/json/_psnProfile.xml.json').success(function (data) {
@@ -39,6 +39,10 @@ app.controller('ProfileController', function ($scope, $http) {
 	});
 	// todo remove once these are handled by the controller/model
 	$scope.Math = window.Math;
+
+	$scope.percentClass = function (percent) {
+		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
+	};
 });
 
 app.controller('NavbarController', function ($scope, $location) {
