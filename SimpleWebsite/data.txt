@@ -1,0 +1,26 @@
+﻿{"XblGamesBasic":[{"Id":"1297287369","Title":"Kinect Sports","Image":"https://live.xbox.com/consoleAssets/4d5308c9/en-us/smallboxart.jpg","LastPlayed":"\/Date(1367021929000)\/","Progress":18.6,"EarnedPoints":280,"EarnedAccomplishments":13,"TotalPoints":1500,"TotalAccomplishments":70,"Platform":"xbox"},{"Id":"1112737766","Title":"Skyrim","Image":"https://live.xbox.com/consoleAssets/425307e6/en-us/smallboxart.jpg","LastPlayed":"\/Date(1364680549000)\/","Progress":2.7,"EarnedPoints":20,"EarnedAccomplishments":2,"TotalPoints":1550,"TotalAccomplishments":75,"Platform":"xbox"}]}
+{"PsnGamesBasic":[{"Id":"NPWR01295_00","Title":"SOCOM 4: U.S. Navy SEALs","Image":"http://trophy01.np.community.playstation.net/trophy/np/NPWR01295_00_6E24075B60D860791CAB67CD121AA1AF488D60EF/AD2A5CC331F509F4313EE06E1630A85CFE2B6A27.PNG","LastPlayed":"\/Date(1367189975000)\/","Progress":37,"EarnedPoints":390,"EarnedAccomplishments":24,"TotalPoints":1050,"TotalAccomplishments":45,"Platform":"ps3"},{"Id":"NPWR03503_00","Title":"The Unfinished Swan™","Image":"http://trophy01.np.community.playstation.net/trophy/np/NPWR03503_00_FE367309417C57695A832FE7C8EF76BA5C35F8B4/FCA8627D42B722DB666A6DCF41E28A706A2DC4FC.PNG","LastPlayed":"\/Date(1367085585000)\/","Progress":4,"EarnedPoints":15,"EarnedAccomplishments":1,"TotalPoints":315,"TotalAccomplishments":10,"Platform":"ps3"}]}
+
+
+
+<div id="videoGameBasics">
+	<div class="videoGameBasics">
+		<h3>PlayStation Network (149 total)</h3>
+		<ol>
+				<li data-lastplayed="20130428175935">SOCOM 4: U.S. Navy SEALs <span class="percent percent25">(37%)</span>
+					<a href="/Projects/VideoGames/DetailsPsn/NPWR01295_00">?</a>
+					<div>24 of 45 / 390 of 1050</div>
+				</li>
+
+
+	<div class="videoGameBasics">
+		<h3>Xbox Live (75 total)</h3>
+		<ol>
+				<li data-lastplayed="20130426191849">Kinect Sports <span class="percent percent0">(18.6%)</span>
+					<a href="/Projects/VideoGames/DetailsXbl/1297287369">?</a>
+					<div>13 of 70 / 280 of 1500</div>
+				</li>
+				<li data-lastplayed="20130330165549">Skyrim <span class="percent percent0">(2.7%)</span>
+					<a href="/Projects/VideoGames/DetailsXbl/1112737766">?</a>
+					<div>2 of 75 / 20 of 1550</div>
+				</li>
