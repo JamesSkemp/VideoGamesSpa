@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\controllers.js" />
+    <Content Include="app\partials\basics.html" />
     <Content Include="app\partials\games.html" />
     <Content Include="app\partials\home.html" />
     <Content Include="app\partials\profile.html" />

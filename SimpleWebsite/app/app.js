@@ -14,5 +14,9 @@ app.config(function ($routeProvider) {
 			controller: 'ProfileController',
 			templateUrl: '/app/partials/profile.html'
 		})
+		.when('/basics', {
+			controller: 'BasicsController',
+			templateUrl: '/app/partials/basics.html'
+		})
 		.otherwise({ redirectTo: '/home' });
 });

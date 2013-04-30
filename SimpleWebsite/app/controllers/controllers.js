@@ -1,8 +1,5 @@
 ﻿app.controller('HomeController', function ($scope) {
-	init();
-
-	function init() {
-	}
+	// todo not sure what I want on the page yet, since we didn't have it before
 });
 
 app.controller('GamesController', function ($scope, $http) {
@@ -47,8 +44,35 @@ app.controller('ProfileController', function ($scope, $http, $window) {
 		}
 	};
 
-	// todo remove once these are handled by the controller/model
+	// todo remove once I figure out what I'm doing with # of bronze trophies to percent display
 	$scope.Math = window.Math;
+});
+
+app.controller('BasicsController', function ($scope, $http, $window) {
+	$scope.psnGamesBasic = [];
+	$scope.xblGamesBasic = [];
+	$http.get('Content/json/_psnGamesBasic.xml.json').success(function (data) {
+		$scope.psnGamesBasic = data.PsnGamesBasic;
+	});
+	$http.get('Content/json/_xblGamesBasic.xml.json').success(function (data) {
+		$scope.xblGamesBasic = data.XblGamesBasic;
+	});
+	$scope.percentClass = function (percent) {
+		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
+	};
+	$scope.extractDate = function (date) {
+		var uglyDate = new Date(parseInt(date.substr(6)));
+		return uglyDate;
+	}
+	/*
+	function ShowDate() { 
+  var now = new Date(); 
+  var then = now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDay(); 
+      then += ' '+now.getHours()+':'+now.getMinutes(); 
+  alert(now+'\n'+then); 
+} 
+
+	*/
 });
 
 app.controller('NavbarController', function ($scope, $location) {
