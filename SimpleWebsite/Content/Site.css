@@ -113,31 +113,26 @@ span.percent
 	color: #aaa;
 	font-size: .75em;
 }
-
-	span.percent.percent100
+	span.percent.percent0
 	{
-		color: black;
-		font-weight: bold;
+		color: red;
 	}
-
-	span.percent.percent75
-	{
-		color: green;
-	}
-
-	span.percent.percent50
-	{
-		color: blue;
-	}
-
 	span.percent.percent25
 	{
 		color: orange;
 	}
-
-	span.percent.percent0
+	span.percent.percent50
 	{
-		color: red;
+		color: blue;
+	}
+	span.percent.percent75
+	{
+		color: green;
+	}
+	span.percent.percent100
+	{
+		color: black;
+		font-weight: bold;
 	}
 
 .videoGameProfile

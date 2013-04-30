@@ -25,9 +25,17 @@ app.controller('ProfileController', function ($scope, $http) {
 	$scope.xblProfile = [];
 	$http.get('Content/json/_psnProfile.xml.json').success(function (data) {
 		$scope.psnProfile = data.PsnProfile;
+		$scope.psnPointsPercent = 100 * data.PsnProfile.Points / data.PsnProfile.PossiblePoints;
+		$scope.psnTrophiesPercent = 100 * data.PsnProfile.Trophies / data.PsnProfile.PossibleTrophies;
+		$scope.psnTrophiesBronzePercent = 100 * data.PsnProfile.TrophiesBronze / data.PsnProfile.PossibleTrophiesBronze;
+		$scope.psnTrophiesSilverPercent = 100 * data.PsnProfile.TrophiesSilver / data.PsnProfile.PossibleTrophiesSilver;
+		$scope.psnTrophiesGoldPercent = 100 * data.PsnProfile.TrophiesGold / data.PsnProfile.PossibleTrophiesGold;
+		$scope.psnTrophiesPlatinumPercent = 100 * data.PsnProfile.TrophiesPlatinum / data.PsnProfile.PossibleTrophiesPlatinum;
 	});
 	$http.get('Content/json/_xblProfile.xml.json').success(function (data) {
 		$scope.xblProfile = data.XblProfile;
+		$scope.xblPointsPercent = 100 * data.XblProfile.GamerScore / data.XblProfile.PossibleGamerScore;
+		$scope.xblAchievementsPercent = 100 * data.XblProfile.Achievements / data.XblProfile.PossibleAchievements;
 	});
 	// todo remove once these are handled by the controller/model
 	$scope.Math = window.Math;
