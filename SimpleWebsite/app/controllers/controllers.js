@@ -61,8 +61,11 @@ app.controller('BasicsController', function ($scope, $http, $window) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
 	$scope.extractDate = function (date) {
-		var uglyDate = new Date(parseInt(date.substr(6)));
-		return uglyDate;
+		if (date.length > 6) {
+			var uglyDate = new Date(parseInt(date.substr(6)));
+			return uglyDate;
+		}
+		return "";
 	}
 });
 
@@ -82,8 +85,11 @@ app.controller('PsnGameController', function ($scope, $http, $routeParams) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
 	$scope.extractDate = function (date) {
-		var uglyDate = new Date(parseInt(date.substr(6)));
-		return uglyDate;
+		if (date != null) {
+			var uglyDate = new Date(parseInt(date.substr(6)));
+			return uglyDate;
+		}
+		return "";
 	}
 	$scope.wasEarned = function (accomplishment) {
 		return accomplishment.Earned != null;
@@ -109,8 +115,11 @@ app.controller('XblGameController', function ($scope, $http, $routeParams) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
 	$scope.extractDate = function (date) {
-		var uglyDate = new Date(parseInt(date.substr(6)));
-		return uglyDate;
+		if (date != null) {
+			var uglyDate = new Date(parseInt(date.substr(6)));
+			return uglyDate;
+		}
+		return "";
 	}
 	$scope.wasEarned = function (accomplishment) {
 		return accomplishment.Earned != null;
