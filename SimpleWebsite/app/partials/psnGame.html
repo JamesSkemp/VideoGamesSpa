@@ -1,0 +1,48 @@
+﻿<div id="videoGameDetails" class="videoGamesPsn" data-ng-controller="PsnGameController">
+	<h2>{{game.Title}} (PS3)</h2>
+
+	<div class="lastPlayed">Last played: {{extractDate(game.LastPlayed) | date:'medium'}}</div>
+
+	<div class="graphic">
+		<img src="/Content/images/psn/{{game.Id}}.png" alt="{{game.Title}}" />
+	</div>
+
+	<div class="details">
+		<div>
+			Points: {{game.EarnedPoints}} of {{game.PossiblePoints}} <span class="percent" data-ng-class="percentClass(game.PointsPercentage)">({{game.PointsPercentage}}%)</span>
+		</div>
+		<div>
+			Trophies: {{game.EarnedTrophies}} of {{game.PossibleTrophies}} <span class="percent" data-ng-class="percentClass(game.TrophyPercentage)">({{game.TrophyPercentage}}%)</span><br />
+			{{game.EarnedBronze}}
+			/
+			{{game.EarnedSilver}}
+			/
+			{{game.EarnedGold}}
+			/
+			{{game.EarnedPlatinum}}
+		</div>
+	</div>
+
+	<div id="accomplishments" data-points="{{game.EarnedPoints}}" data-quantity="{{game.EarnedTrophies}}" data-totalpoints="{{game.PossiblePoints}}" data-totalquantity="{{game.PossibleTrophies}}">
+		<h3>Earned Trophies</h3>
+		<ul class="earned">
+			<li data-ng-repeat="trophy in game.Trophies | filter:wasEarned | orderBy:'Earned':true">
+				<strong>{{trophy.Title}}</strong> ({{trophy.Type}})<br />
+				{{trophy.Description}}
+				<span>{{extractDate(trophy.Earned) | date:'medium'}}</span>
+			</li>
+		</ul>
+		<h3>Unearned Trophies</h3>
+		<ul class="unearned">
+			<li data-ng-repeat="trophy in game.Trophies | filter:notEarned">
+				<strong>{{trophy.Title}}</strong> ({{trophy.Type}})<br />
+				{{trophy.Description}}
+			</li>
+		</ul>
+	</div>
+	<p><a href="#/basics">Back to List</a></p>
+</div><script type="text/javascript">
+	(function ($) {
+		$('#videoGameDetails').detailsExperimentation();
+	})(jQuery);
+</script>

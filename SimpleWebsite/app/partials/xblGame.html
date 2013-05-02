@@ -1,0 +1,38 @@
+﻿<div id="videoGameDetails" class="videoGamesXbl" data-ng-controller="XblGameController">
+	<h2>{{game.Title}} (Xbox)</h2>
+	<div class="lastPlayed">Last played: {{extractDate(game.LastPlayed) | date:'medium'}}</div>
+	<div class="graphic">
+		<img src="/Content/images/xbl/1297287369.jpg" alt="{{game.Title}}" />
+	</div>
+	<div class="details">
+		<div>
+			<!--todo-->Gamerscore: {{game.EarnedGamerScore}} of {{game.PossibleGamerScore}} <span class="percent" data-ng-class="percentClass(game.GamerscorePercentage)">({{game.GamerscorePercentage}}%)</span>
+		</div>
+		<div>
+			Achievements: {{game.EarnedAchievements}} of {{game.PossibleAchievements}} <span class="percent" data-ng-class="percentClass(game.AchievementPercentage)">({{game.AchievementPercentage}}%)</span>
+		</div>
+	</div>
+	<!-- todo can probably remove since we're now using AngularJS? -->
+	<div id="accomplishments" data-points="{{game.EarnedGamerScore}}" data-quantity="{{game.EarnedAchievements}}" data-totalpoints="{{game.PossibleGamerScore}}" data-totalquantity="{{game.PossibleAchievements}}">
+		<h3>Earned achievements</h3>
+		<ul class="earned">
+			<li data-ng-repeat="achievement in game.Achievements | filter:wasEarned">
+				<strong>{{achievement.Title}}</strong> ({{achievement.GamerScore}})<br />
+				{{achievement.Description}}
+				<span>{{extractDate(achievement.Earned) | date:'medium'}}</span>
+			</li>
+		</ul>
+		<h3>Unearned achievements</h3>
+		<ul class="unearned">
+			<li data-ng-repeat="achievement in game.Achievements | filter:notEarned" data-points="{{achievement.GamerScore}}">
+				<strong>{{achievement.Title}}</strong> ({{achievement.GamerScore}})<br />
+				{{achievement.Description}}
+			</li>
+		</ul>
+	</div>
+	<p><a href="#/basics">Back to List</a></p>
+</div><script type="text/javascript">
+	(function ($) {
+		$('#videoGameDetails').detailsExperimentation();
+	})(jQuery);
+</script>

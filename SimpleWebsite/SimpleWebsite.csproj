@@ -60,6 +60,8 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\controllers.js" />
     <Content Include="app\partials\basics.html" />
+    <Content Include="app\partials\psnGame.html" />
+    <Content Include="app\partials\xblGame.html" />
     <Content Include="app\partials\games.html" />
     <Content Include="app\partials\home.html" />
     <Content Include="app\partials\profile.html" />
@@ -625,6 +627,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-migrate-1.1.1.js" />
     <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
+    <Content Include="Scripts\VideoGameProfile.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />

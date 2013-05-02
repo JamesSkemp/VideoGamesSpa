@@ -64,15 +64,60 @@ app.controller('BasicsController', function ($scope, $http, $window) {
 		var uglyDate = new Date(parseInt(date.substr(6)));
 		return uglyDate;
 	}
-	/*
-	function ShowDate() { 
-  var now = new Date(); 
-  var then = now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDay(); 
-      then += ' '+now.getHours()+':'+now.getMinutes(); 
-  alert(now+'\n'+then); 
-} 
+});
 
-	*/
+app.controller('PsnGameController', function ($scope, $http, $routeParams) {
+	var gameId = ($routeParams.gameId) ? ($routeParams.gameId) : "";
+	if (gameId != "") {
+		$http.get('Content/json/_psnGames.xml.json').success(function (data) {
+			for (var i = 0; i < data.PsnGames.length; i++) {
+				if (data.PsnGames[i].Id == gameId) {
+					$scope.game = data.PsnGames[i];
+					break;
+				}
+			}
+		});
+	}
+	$scope.percentClass = function (percent) {
+		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
+	};
+	$scope.extractDate = function (date) {
+		var uglyDate = new Date(parseInt(date.substr(6)));
+		return uglyDate;
+	}
+	$scope.wasEarned = function (accomplishment) {
+		return accomplishment.Earned != null;
+	};
+	$scope.notEarned = function (accomplishment) {
+		return accomplishment.Earned == null;
+	};
+});
+
+app.controller('XblGameController', function ($scope, $http, $routeParams) {
+	var gameId = ($routeParams.gameId) ? ($routeParams.gameId) : "";
+	if (gameId != "") {
+		$http.get('Content/json/_xblGames.xml.json').success(function (data) {
+			for (var i = 0; i < data.XblGames.length; i++) {
+				if (data.XblGames[i].Id == gameId) {
+					$scope.game = data.XblGames[i];
+					break;
+				}
+			}
+		});
+	}
+	$scope.percentClass = function (percent) {
+		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
+	};
+	$scope.extractDate = function (date) {
+		var uglyDate = new Date(parseInt(date.substr(6)));
+		return uglyDate;
+	}
+	$scope.wasEarned = function (accomplishment) {
+		return accomplishment.Earned != null;
+	};
+	$scope.notEarned = function (accomplishment) {
+		return accomplishment.Earned == null;
+	};
 });
 
 app.controller('NavbarController', function ($scope, $location) {

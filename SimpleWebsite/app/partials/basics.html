@@ -1,32 +1,4 @@
 ﻿<h2>Game Basics</h2>
-<!--<div id="videoGameBasicsOld">
-	<div class="videoGameBasics">
-		<h3>PlayStation Network (@Model.PsnGames.Count total)</h3>
-		<ol>
-			@foreach (var game in Model.PsnGames)
-			{
-				<li data-lastplayed="@game.LastPlayed.ToString("yyyyMMddHHmmss")">@game.Title <span class="@percentClasses(game.Progress)">(@game.Progress%)</span>
-					@Html.ActionLink("?", "DetailsPsn", new { id = game.Id })
-					<div>@game.EarnedAccomplishments of @game.TotalAccomplishments / @game.EarnedPoints of @game.TotalPoints</div>
-				</li>
-			}
-		</ol>
-	</div>
-
-	<div class="videoGameBasics">
-		<h3>Xbox Live (@Model.XblGames.Count total)</h3>
-		<ol>
-			@foreach (var game in Model.XblGames)
-			{
-				<li data-lastplayed="@game.LastPlayed.ToString("yyyyMMddHHmmss")">@game.Title <span class="@percentClasses(game.Progress)">(@game.Progress%)</span>
-					@Html.ActionLink("?", "DetailsXbl", new { id = game.Id })
-					<div>@game.EarnedAccomplishments of @game.TotalAccomplishments / @game.EarnedPoints of @game.TotalPoints</div>
-				</li>
-			}
-		</ol>
-	</div>
-</div>-->
-
 <div id="videoGameBasics" data-ng-controller="BasicsController">
 	<div class="row-fluid">
 		<div class="span6 videoGameBasics">
@@ -34,7 +6,7 @@
 			<ol>
 				<li data-ng-repeat="game in psnGamesBasic" data-lastplayed="{{extractDate(game.LastPlayed) | date:'yyyyMMddHHmmss'}}">
 					{{game.Title}} <span data-ng-class="percentClass(game.Progress)" class="percent">({{game.Progress}}%)</span>
-					<!--todo--><!--@Html.ActionLink("?", "DetailsXbl", new { id = game.Id })-->
+					<a href="#/psnGame/{{game.Id}}">?</a>
 					<div>{{game.EarnedAccomplishments}} of {{game.TotalAccomplishments}} / {{game.EarnedPoints}} of {{game.TotalPoints}}</div>
 				</li>
 			</ol>
@@ -44,7 +16,7 @@
 			<ol>
 				<li data-ng-repeat="game in xblGamesBasic" data-lastplayed="{{extractDate(game.LastPlayed) | date:'yyyyMMddHHmmss'}}">
 					{{game.Title}} <span data-ng-class="percentClass(game.Progress)" class="percent">({{game.Progress}}%)</span>
-					<!--todo--><!--@Html.ActionLink("?", "DetailsXbl", new { id = game.Id })-->
+					<a href="#/xblGame/{{game.Id}}">?</a>
 					<div>{{game.EarnedAccomplishments}} of {{game.TotalAccomplishments}} / {{game.EarnedPoints}} of {{game.TotalPoints}}</div>
 				</li>
 			</ol>

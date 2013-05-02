@@ -7,16 +7,24 @@ app.config(function ($routeProvider) {
 			templateUrl: '/app/partials/home.html'
 		})
 		.when('/games', {
-			controller: 'GamesController',
+			//controller: 'GamesController',
 			templateUrl: '/app/partials/games.html'
 		})
 		.when('/profile', {
-			controller: 'ProfileController',
+			//controller: 'ProfileController',
 			templateUrl: '/app/partials/profile.html'
 		})
 		.when('/basics', {
-			controller: 'BasicsController',
+			//controller: 'BasicsController',
 			templateUrl: '/app/partials/basics.html'
+		})
+		.when('/psnGame/:gameId', {
+			//controller: 'PsnGameController',
+			templateUrl: '/app/partials/psnGame.html'
+		})
+		.when('/xblGame/:gameId', {
+			//controller: 'XblGameController',
+			templateUrl: '/app/partials/xblGame.html'
 		})
 		.otherwise({ redirectTo: '/home' });
 });
