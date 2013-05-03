@@ -2,7 +2,7 @@
 	<h2>{{game.Title}} (PS3)</h2>
 	<div class="lastPlayed">Last played: {{extractDate(game.LastPlayed) | date:'medium'}}</div>
 	<div class="graphic">
-		<img src="Content/images/psn/{{game.Id}}.png" alt="{{game.Title}}" />
+		<img data-ng-src="{{graphicUrl}}" alt="{{game.Title}}" />
 	</div>
 	<div class="details">
 		<div>

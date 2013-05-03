@@ -82,6 +82,7 @@ app.controller('PsnGameController', function ($scope, $http, $routeParams) {
 					$scope.test.additionalAccomplishments = 0;
 					$scope.test.newPointsPercent = $scope.game.PointsPercentage;
 					$scope.test.newItemsPercent = $scope.game.TrophyPercentage;
+					$scope.graphicUrl = 'Content/images/psn/' + $scope.game.Id + '.png';
 					break;
 				}
 			}
@@ -166,6 +167,7 @@ app.controller('XblGameController', function ($scope, $http, $routeParams) {
 					$scope.test.additionalAccomplishments = 0;
 					$scope.test.newPointsPercent = $scope.game.GamerscorePercentage;
 					$scope.test.newItemsPercent = $scope.game.AchievementPercentage;
+					$scope.graphicUrl = 'Content/images/xbl/' + $scope.game.Id + '.jpg';
 					break;
 				}
 			}
