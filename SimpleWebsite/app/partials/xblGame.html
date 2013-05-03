@@ -12,8 +12,7 @@
 			Achievements: {{game.EarnedAchievements}} of {{game.PossibleAchievements}} <span class="percent" data-ng-class="percentClass(game.AchievementPercentage)">({{game.AchievementPercentage}}%)</span>
 		</div>
 	</div>
-	<!-- todo can probably remove since we're now using AngularJS? -->
-	<div id="accomplishments" data-points="{{game.EarnedGamerScore}}" data-quantity="{{game.EarnedAchievements}}" data-totalpoints="{{game.PossibleGamerScore}}" data-totalquantity="{{game.PossibleAchievements}}">
+	<div id="accomplishments">
 		<h3>Earned achievements</h3>
 		<ul class="earned">
 			<li data-ng-repeat="achievement in game.Achievements | filter:wasEarned">
@@ -24,7 +23,7 @@
 		</ul>
 		<h3>Unearned achievements</h3>
 		<ul class="unearned">
-			<li data-ng-repeat="achievement in game.Achievements | filter:notEarned" data-points="{{achievement.GamerScore}}" data-ng-click="testItem(achievement)" data-ng-class="testEnabled(achievement.Id)">
+			<li data-ng-repeat="achievement in game.Achievements | filter:notEarned" data-ng-click="testItem(achievement)" data-ng-class="testEnabled(achievement.Id)">
 				<strong>{{secretTitle(achievement)}}</strong> ({{achievement.GamerScore}})<br />
 				{{achievement.Description}}
 			</li>
@@ -38,8 +37,3 @@
 	</div>
 	<p><a href="#/basics">Back to List</a></p>
 </div>
-<script type="text/javascript">
-	(function ($) {
-		//$('#videoGameDetails').detailsExperimentation();
-	})(jQuery);
-</script>
