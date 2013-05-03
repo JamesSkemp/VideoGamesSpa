@@ -6,7 +6,7 @@
 	</div>
 	<div class="details">
 		<div>
-			<!--todo-->Gamerscore: {{game.EarnedGamerScore}} of {{game.PossibleGamerScore}} <span class="percent" data-ng-class="percentClass(game.GamerscorePercentage)">({{game.GamerscorePercentage}}%)</span>
+			Gamerscore: {{game.EarnedGamerScore}} of {{game.PossibleGamerScore}} <span class="percent" data-ng-class="percentClass(game.GamerscorePercentage)">({{game.GamerscorePercentage}}%)</span>
 		</div>
 		<div>
 			Achievements: {{game.EarnedAchievements}} of {{game.PossibleAchievements}} <span class="percent" data-ng-class="percentClass(game.AchievementPercentage)">({{game.AchievementPercentage}}%)</span>
@@ -31,7 +31,8 @@
 		</ul>
 	</div>
 	<p><a href="#/basics">Back to List</a></p>
-</div><script type="text/javascript">
+</div>
+<script type="text/javascript">
 	(function ($) {
 		$('#videoGameDetails').detailsExperimentation();
 	})(jQuery);
