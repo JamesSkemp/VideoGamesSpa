@@ -70,17 +70,57 @@ app.controller('BasicsController', function ($scope, $http, $window) {
 });
 
 app.controller('PsnGameController', function ($scope, $http, $routeParams) {
+	$scope.test = [];
+	$scope.test.enabled = [];
 	var gameId = ($routeParams.gameId) ? ($routeParams.gameId) : "";
 	if (gameId != "") {
 		$http.get('Content/json/_psnGames.xml.json').success(function (data) {
 			for (var i = 0; i < data.PsnGames.length; i++) {
 				if (data.PsnGames[i].Id == gameId) {
 					$scope.game = data.PsnGames[i];
+					$scope.test.additionalPoints = 0;
+					$scope.test.additionalAccomplishments = 0;
+					$scope.test.newPointsPercent = $scope.game.PointsPercentage;
+					$scope.test.newItemsPercent = $scope.game.TrophyPercentage;
 					break;
 				}
 			}
 		});
 	}
+	$scope.testEnabled = function (itemId) {
+		if ($scope.test.enabled.indexOf(itemId) == -1) {
+			return "";
+		} else {
+			return "enabled";
+		}
+	};
+	$scope.testItem = function (trophy) {
+		if ($scope.test.enabled.indexOf(trophy.Id) == -1) {
+			$scope.test.additionalPoints += 1 * $scope.trophyTypeToPoints(trophy.Type);
+			$scope.test.additionalAccomplishments += 1;
+			$scope.test.enabled.push(trophy.Id);
+		} else {
+			$scope.test.additionalPoints -= 1 * $scope.trophyTypeToPoints(trophy.Type);
+			$scope.test.additionalAccomplishments -= 1;
+			$scope.test.enabled.splice($scope.test.enabled.indexOf(trophy.Id), 1);
+		}
+		$scope.test.newPointsPercent = Math.round(($scope.test.additionalPoints + $scope.game.EarnedPoints) / $scope.game.PossiblePoints * 100 * 1000) / 1000;
+		$scope.test.newItemsPercent = Math.round(($scope.test.additionalAccomplishments + $scope.game.EarnedTrophies) / $scope.game.PossibleTrophies * 100 * 1000) / 1000;
+	};
+	$scope.newPoints = function () {
+		if ($scope.test.additionalPoints == 0) {
+			return "";
+		} else {
+			return "(+" + $scope.test.additionalPoints + ")";
+		}
+	};
+	$scope.newItems = function () {
+		if ($scope.test.additionalAccomplishments == 0) {
+			return "";
+		} else {
+			return "(+" + $scope.test.additionalAccomplishments + ")";
+		}
+	};
 	$scope.percentClass = function (percent) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
@@ -91,6 +131,20 @@ app.controller('PsnGameController', function ($scope, $http, $routeParams) {
 		}
 		return "";
 	}
+	$scope.trophyTypeToPoints = function (trophyType) {
+		switch (trophyType) {
+			case "BRONZE":
+				return 15;
+			case "SILVER":
+				return 30;
+			case "GOLD":
+				return 90;
+			case "PLATINUM":
+				return 180;
+			default:
+				return 0;
+		}
+	};
 	$scope.wasEarned = function (accomplishment) {
 		return accomplishment.Earned != null;
 	};
@@ -100,17 +154,57 @@ app.controller('PsnGameController', function ($scope, $http, $routeParams) {
 });
 
 app.controller('XblGameController', function ($scope, $http, $routeParams) {
+	$scope.test = [];
+	$scope.test.enabled = [];
 	var gameId = ($routeParams.gameId) ? ($routeParams.gameId) : "";
 	if (gameId != "") {
 		$http.get('Content/json/_xblGames.xml.json').success(function (data) {
 			for (var i = 0; i < data.XblGames.length; i++) {
 				if (data.XblGames[i].Id == gameId) {
 					$scope.game = data.XblGames[i];
+					$scope.test.additionalPoints = 0;
+					$scope.test.additionalAccomplishments = 0;
+					$scope.test.newPointsPercent = $scope.game.GamerscorePercentage;
+					$scope.test.newItemsPercent = $scope.game.AchievementPercentage;
 					break;
 				}
 			}
 		});
 	}
+	$scope.testEnabled = function (itemId) {
+		if ($scope.test.enabled.indexOf(itemId) == -1) {
+			return "";
+		} else {
+			return "enabled";
+		}
+	};
+	$scope.testItem = function (achievement) {
+		if ($scope.test.enabled.indexOf(achievement.Id) == -1) {
+			$scope.test.additionalPoints += 1 * achievement.GamerScore;
+			$scope.test.additionalAccomplishments += 1;
+			$scope.test.enabled.push(achievement.Id);
+		} else {
+			$scope.test.additionalPoints -= 1 * achievement.GamerScore;
+			$scope.test.additionalAccomplishments -= 1;
+			$scope.test.enabled.splice($scope.test.enabled.indexOf(achievement.Id), 1);
+		}
+		$scope.test.newPointsPercent = Math.round(($scope.test.additionalPoints + $scope.game.EarnedGamerScore) / $scope.game.PossibleGamerScore * 100 * 1000) / 1000;
+		$scope.test.newItemsPercent = Math.round(($scope.test.additionalAccomplishments + $scope.game.EarnedAchievements) / $scope.game.PossibleAchievements * 100 * 1000) / 1000;
+	};
+	$scope.newPoints = function () {
+		if ($scope.test.additionalPoints == 0) {
+			return "";
+		} else {
+			return "(+" + $scope.test.additionalPoints + ")";
+		}
+	};
+	$scope.newItems = function () {
+		if ($scope.test.additionalAccomplishments == 0) {
+			return "";
+		} else {
+			return "(+" + $scope.test.additionalAccomplishments + ")";
+		}
+	};
 	$scope.percentClass = function (percent) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
@@ -121,6 +215,9 @@ app.controller('XblGameController', function ($scope, $http, $routeParams) {
 		}
 		return "";
 	}
+	$scope.secretTitle = function (accomplishment) {
+		return accomplishment.Title.length > 0 ? accomplishment.Title : "Secret achievement";
+	};
 	$scope.wasEarned = function (accomplishment) {
 		return accomplishment.Earned != null;
 	};

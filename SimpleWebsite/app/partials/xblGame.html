@@ -24,16 +24,22 @@
 		</ul>
 		<h3>Unearned achievements</h3>
 		<ul class="unearned">
-			<li data-ng-repeat="achievement in game.Achievements | filter:notEarned" data-points="{{achievement.GamerScore}}">
-				<strong>{{achievement.Title}}</strong> ({{achievement.GamerScore}})<br />
+			<li data-ng-repeat="achievement in game.Achievements | filter:notEarned" data-points="{{achievement.GamerScore}}" data-ng-click="testItem(achievement)" data-ng-class="testEnabled(achievement.Id)">
+				<strong>{{secretTitle(achievement)}}</strong> ({{achievement.GamerScore}})<br />
 				{{achievement.Description}}
 			</li>
 		</ul>
+		<h3>Experimentation</h3>
+		<p>
+			Points percentage: {{game.GamerscorePercentage}}% &gt; <span id="pointsPercentage">{{test.newPointsPercent}}</span>% <span id="pointsChange">{{newPoints()}}</span>
+			<br />
+			Accomplishments: {{game.AchievementPercentage}}% &gt; <span id="itemsPercentage">{{test.newItemsPercent}}</span>% <span id="itemsChange">{{newItems()}}</span>
+		</p>
 	</div>
 	<p><a href="#/basics">Back to List</a></p>
 </div>
 <script type="text/javascript">
 	(function ($) {
-		$('#videoGameDetails').detailsExperimentation();
+		//$('#videoGameDetails').detailsExperimentation();
 	})(jQuery);
 </script>

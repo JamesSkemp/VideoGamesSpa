@@ -34,16 +34,22 @@
 		</ul>
 		<h3>Unearned Trophies</h3>
 		<ul class="unearned">
-			<li data-ng-repeat="trophy in game.Trophies | filter:notEarned">
+			<li data-ng-repeat="trophy in game.Trophies | filter:notEarned" data-points="{{trophyTypeToPoints(trophy.Type)}}" data-ng-click="testItem(trophy)" data-ng-class="testEnabled(trophy.Id)">
 				<strong>{{trophy.Title}}</strong> ({{trophy.Type}})<br />
 				{{trophy.Description}}
 			</li>
 		</ul>
+		<h3>Experimentation</h3>
+		<p>
+			Points percentage: {{game.PointsPercentage}}% &gt; <span id="pointsPercentage">{{test.newPointsPercent}}</span>% <span id="pointsChange">{{newPoints()}}</span>
+			<br />
+			Accomplishments: {{game.TrophyPercentage}}% &gt; <span id="itemsPercentage">{{test.newItemsPercent}}</span>% <span id="itemsChange">{{newItems()}}</span>
+		</p>
 	</div>
 	<p><a href="#/basics">Back to List</a></p>
 </div>
 <script type="text/javascript">
 	(function ($) {
-		$('#videoGameDetails').detailsExperimentation();
+		//$('#videoGameDetails').detailsExperimentation();
 	})(jQuery);
 </script>
