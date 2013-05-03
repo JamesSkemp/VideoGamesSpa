@@ -6,7 +6,7 @@ app.controller('GamesController', function ($scope, $http) {
 	$scope.currentPage = 0;
 	$scope.pageSize = 10;
 	$scope.games = [];
-	$http.get('/Content/json/VideoGames.json').success(function (data) {
+	$http.get('Content/json/VideoGames.json').success(function (data) {
 		$scope.games = data.VideoGames;
 	});
 	$scope.numberOfPages = function () {

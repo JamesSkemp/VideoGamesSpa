@@ -4,27 +4,27 @@ app.config(function ($routeProvider) {
 	$routeProvider
 		.when('/home', {
 			controller: 'HomeController',
-			templateUrl: '/app/partials/home.html'
+			templateUrl: 'app/partials/home.html'
 		})
 		.when('/games', {
 			//controller: 'GamesController',
-			templateUrl: '/app/partials/games.html'
+			templateUrl: 'app/partials/games.html'
 		})
 		.when('/profile', {
 			//controller: 'ProfileController',
-			templateUrl: '/app/partials/profile.html'
+			templateUrl: 'app/partials/profile.html'
 		})
 		.when('/basics', {
 			//controller: 'BasicsController',
-			templateUrl: '/app/partials/basics.html'
+			templateUrl: 'app/partials/basics.html'
 		})
 		.when('/psnGame/:gameId', {
 			//controller: 'PsnGameController',
-			templateUrl: '/app/partials/psnGame.html'
+			templateUrl: 'app/partials/psnGame.html'
 		})
 		.when('/xblGame/:gameId', {
 			//controller: 'XblGameController',
-			templateUrl: '/app/partials/xblGame.html'
+			templateUrl: 'app/partials/xblGame.html'
 		})
 		.otherwise({ redirectTo: '/home' });
 });
