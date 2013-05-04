@@ -1,0 +1,35 @@
+﻿app.controller('AdminHomeController', function ($scope, JsonCache, $templateCache) {
+	$scope.jsonCache = JsonCache;
+	$scope.templateCache = $templateCache;
+	//console.log($scope.jsonCache);
+	//console.log($scope.jsonCache.info());
+	$scope.dataFiles = [];
+	$scope.dataFiles.push('Content/json/VideoGames.json');
+	$scope.dataFiles.push('Content/json/_psnProfile.xml.json');
+	$scope.dataFiles.push('Content/json/_xblProfile.xml.json');
+	$scope.dataFiles.push('Content/json/_psnGamesBasic.xml.json');
+	$scope.dataFiles.push('Content/json/_xblGamesBasic.xml.json');
+	$scope.dataFiles.push('Content/json/_psnGames.xml.json');
+	$scope.dataFiles.push('Content/json/_xblGames.xml.json');
+
+	$scope.templateFiles = [];
+	$scope.templateFiles.push('app/partials/home.html');
+	$scope.templateFiles.push('app/partials/basics.html');
+	$scope.templateFiles.push('app/partials/games.html');
+	$scope.templateFiles.push('app/partials/profile.html');
+	$scope.templateFiles.push('app/partials/psnGame.html');
+	$scope.templateFiles.push('app/partials/xblGame.html');
+	$scope.templateFiles.push('app/partials/admin/home.html');
+
+	//console.log($scope.templateFiles);
+	//console.log($templateCache);
+	//console.log($templateCache.info());
+
+	$scope.emptyDataCache = function () {
+		JsonCache.removeAll();
+	};
+
+	$scope.emptyTemplateCache = function () {
+		$scope.templateCache.removeAll();
+	};
+});

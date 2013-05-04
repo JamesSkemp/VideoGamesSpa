@@ -58,7 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\adminControllers.js" />
     <Content Include="app\controllers\controllers.js" />
+    <Content Include="app\partials\admin\home.html" />
     <Content Include="app\partials\basics.html" />
     <Content Include="app\partials\psnGame.html" />
     <Content Include="app\partials\xblGame.html" />

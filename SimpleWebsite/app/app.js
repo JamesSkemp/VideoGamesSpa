@@ -26,6 +26,9 @@ app.config(function ($routeProvider) {
 			//controller: 'XblGameController',
 			templateUrl: 'app/partials/xblGame.html'
 		})
+		.when('/admin', {
+			templateUrl: 'app/partials/admin/home.html'
+		})
 		.otherwise({ redirectTo: '/home' });
 });
 app.factory('JsonCache', function ($cacheFactory) {

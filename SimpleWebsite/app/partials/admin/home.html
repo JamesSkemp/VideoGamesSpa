@@ -1,0 +1,20 @@
+﻿<h2>Admin</h2>
+<div data-ng-controller="AdminHomeController">
+	<div>
+		<h3>Data caches</h3>
+		{{jsonCache.info().id}} : {{jsonCache.info().size}}<br />
+		<a href="" data-ng-click="emptyDataCache()" data-ng-show="jsonCache.info().size > 0">Clear all</a>
+		<ul>
+			<li data-ng-repeat="dataFile in dataFiles">{{dataFile}} = {{jsonCache.get(dataFile).length}}</li>
+		</ul>
+	</div>
+
+	<div>
+		<h3>Template caches</h3>
+		{{templateCache.info().id}} : {{templateCache.info().size}}<br />
+		<a href="" data-ng-click="emptyTemplateCache()" data-ng-show="templateCache.info().size > 0">Clear all</a>
+		<ul>
+			<li data-ng-repeat="templateFile in templateFiles">{{templateFile}} = {{templateCache.get(templateFile).length}}</li>
+		</ul>
+	</div>
+</div>

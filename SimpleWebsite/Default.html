@@ -21,6 +21,8 @@
 						<li data-ng-class="{'active':getClass('/games')}"><a href="#/games">Games</a></li>
 						<li data-ng-class="{'active':getClass('/profile')}"><a href="#/profile">Profile</a></li>
 						<li data-ng-class="{'active':getClass('/basics')}"><a href="#/basics">Game Basics</a></li>
+						<li class="nav-header">Admin</li>
+						<li data-ng-class="{'active':getClass('/admin')}"><a href="#/admin">Admin</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,10 +35,6 @@
 			<p>Created by <a href="http://jamesrskemp.com">James Skemp</a>.</p>
 		</footer>
 	</div>
-
-	
-
-	
     <!--<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -59,55 +57,6 @@
         </div>
       </div>
     </div>-->
-
-    <!--<div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          nav removed
-        </div>
-        <div class="span9">
-          <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
 	<script src="Scripts/jquery-1.9.1.min.js"></script>
 	<script src="Scripts/jquery-migrate-1.1.1.min.js"></script>
 	<script src="Scripts/angular.min.js"></script>
@@ -115,6 +64,7 @@
 	<script src="Scripts/highcharts-3.0.1.min.js"></script>
 	<script src="app/app.js"></script>
 	<script src="app/controllers/controllers.js"></script>
+	<script src="app/controllers/adminControllers.js"></script>
 	<script src="Scripts/VideoGameProfile.js"></script>
 </body>
 </html>
