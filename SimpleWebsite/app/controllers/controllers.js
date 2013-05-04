@@ -2,22 +2,23 @@
 	// todo not sure what I want on the page yet, since we didn't have it before
 });
 
-app.controller('GamesController', function ($scope, $http) {
+app.controller('GamesController', function ($scope, $http, JsonCache) {
 	$scope.currentPage = 0;
 	$scope.pageSize = 10;
 	$scope.games = [];
-	$http.get('Content/json/VideoGames.json').success(function (data) {
+	$http.get('Content/json/VideoGames.json', { cache: JsonCache }).success(function (data) {
 		$scope.games = data.VideoGames;
 	});
+
 	$scope.numberOfPages = function () {
 		return Math.ceil($scope.games.length / $scope.pageSize);
 	}
 });
 
-app.controller('ProfileController', function ($scope, $http, $window) {
+app.controller('ProfileController', function ($scope, $http, JsonCache, $window) {
 	$scope.psnProfile = [];
 	$scope.xblProfile = [];
-	$http.get('Content/json/_psnProfile.xml.json').success(function (data) {
+	$http.get('Content/json/_psnProfile.xml.json', { cache: JsonCache }).success(function (data) {
 		$scope.psnProfile = data.PsnProfile;
 		$scope.psnPointsPercent = 100 * data.PsnProfile.Points / data.PsnProfile.PossiblePoints;
 		$scope.psnTrophiesPercent = 100 * data.PsnProfile.Trophies / data.PsnProfile.PossibleTrophies;
@@ -26,7 +27,7 @@ app.controller('ProfileController', function ($scope, $http, $window) {
 		$scope.psnTrophiesGoldPercent = 100 * data.PsnProfile.TrophiesGold / data.PsnProfile.PossibleTrophiesGold;
 		$scope.psnTrophiesPlatinumPercent = 100 * data.PsnProfile.TrophiesPlatinum / data.PsnProfile.PossibleTrophiesPlatinum;
 	});
-	$http.get('Content/json/_xblProfile.xml.json').success(function (data) {
+	$http.get('Content/json/_xblProfile.xml.json', { cache: JsonCache }).success(function (data) {
 		$scope.xblProfile = data.XblProfile;
 		$scope.xblPointsPercent = 100 * data.XblProfile.GamerScore / data.XblProfile.PossibleGamerScore;
 		$scope.xblAchievementsPercent = 100 * data.XblProfile.Achievements / data.XblProfile.PossibleAchievements;
@@ -48,13 +49,13 @@ app.controller('ProfileController', function ($scope, $http, $window) {
 	$scope.Math = window.Math;
 });
 
-app.controller('BasicsController', function ($scope, $http, $window) {
+app.controller('BasicsController', function ($scope, $http, JsonCache, $window) {
 	$scope.psnGamesBasic = [];
 	$scope.xblGamesBasic = [];
-	$http.get('Content/json/_psnGamesBasic.xml.json').success(function (data) {
+	$http.get('Content/json/_psnGamesBasic.xml.json', { cache: JsonCache }).success(function (data) {
 		$scope.psnGamesBasic = data.PsnGamesBasic;
 	});
-	$http.get('Content/json/_xblGamesBasic.xml.json').success(function (data) {
+	$http.get('Content/json/_xblGamesBasic.xml.json', { cache: JsonCache }).success(function (data) {
 		$scope.xblGamesBasic = data.XblGamesBasic;
 	});
 	$scope.percentClass = function (percent) {
@@ -69,12 +70,12 @@ app.controller('BasicsController', function ($scope, $http, $window) {
 	}
 });
 
-app.controller('PsnGameController', function ($scope, $http, $routeParams) {
+app.controller('PsnGameController', function ($scope, $http, JsonCache, $routeParams) {
 	$scope.test = [];
 	$scope.test.enabled = [];
 	var gameId = ($routeParams.gameId) ? ($routeParams.gameId) : "";
 	if (gameId != "") {
-		$http.get('Content/json/_psnGames.xml.json').success(function (data) {
+		$http.get('Content/json/_psnGames.xml.json', { cache: JsonCache }).success(function (data) {
 			for (var i = 0; i < data.PsnGames.length; i++) {
 				if (data.PsnGames[i].Id == gameId) {
 					$scope.game = data.PsnGames[i];
@@ -154,12 +155,12 @@ app.controller('PsnGameController', function ($scope, $http, $routeParams) {
 	};
 });
 
-app.controller('XblGameController', function ($scope, $http, $routeParams) {
+app.controller('XblGameController', function ($scope, $http, JsonCache, $routeParams) {
 	$scope.test = [];
 	$scope.test.enabled = [];
 	var gameId = ($routeParams.gameId) ? ($routeParams.gameId) : "";
 	if (gameId != "") {
-		$http.get('Content/json/_xblGames.xml.json').success(function (data) {
+		$http.get('Content/json/_xblGames.xml.json', { cache: JsonCache }).success(function (data) {
 			for (var i = 0; i < data.XblGames.length; i++) {
 				if (data.XblGames[i].Id == gameId) {
 					$scope.game = data.XblGames[i];

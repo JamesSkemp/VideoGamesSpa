@@ -28,3 +28,6 @@ app.config(function ($routeProvider) {
 		})
 		.otherwise({ redirectTo: '/home' });
 });
+app.factory('JsonCache', function ($cacheFactory) {
+	return $cacheFactory('jsonCache');
+});
