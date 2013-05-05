@@ -12,7 +12,7 @@ app.controller('GamesController', function ($scope, $http, JsonCache) {
 
 	$scope.numberOfPages = function () {
 		return Math.ceil($scope.games.length / $scope.pageSize);
-	}
+	};
 });
 
 app.controller('ProfileController', function ($scope, $http, JsonCache, $window) {
@@ -132,7 +132,7 @@ app.controller('PsnGameController', function ($scope, $http, JsonCache, $routePa
 			return uglyDate;
 		}
 		return "";
-	}
+	};
 	$scope.trophyTypeToPoints = function (trophyType) {
 		switch (trophyType) {
 			case "BRONZE":
@@ -236,7 +236,7 @@ app.controller('NavbarController', function ($scope, $location) {
 		} else {
 			return false;
 		}
-	}
+	};
 });
 
 // From http://jsfiddle.net/2ZzZB/56/
@@ -244,5 +244,5 @@ app.filter('startFrom', function () {
 	return function (input, start) {
 		start = +start; //parse to int
 		return input.slice(start);
-	}
+	};
 });
