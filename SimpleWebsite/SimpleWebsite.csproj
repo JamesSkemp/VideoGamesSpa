@@ -304,7 +304,6 @@
     <Content Include="Content\images\_accomplishments.png" />
     <Content Include="Content\images\_accomplishments20.png" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\VideoGameProfile.css" />
     <Content Include="data.txt" />
     <Content Include="Default.html" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
