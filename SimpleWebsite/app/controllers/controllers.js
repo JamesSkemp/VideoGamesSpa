@@ -62,24 +62,6 @@ app.controller('ProfileController', function ($scope, $route, $http, JsonCache, 
 
 	//console.log($route);
 	//console.log($templateCache.info());
-	$scope.refreshData = function (network) {
-		if (network != "xbl") {
-			console.log("!xbl");
-			console.log(JsonCache.info());
-			JsonCache.remove(psnDataUrl);
-			console.log(JsonCache.info());
-			getPsnData();
-			console.log(JsonCache.info());
-		}
-		if (network != "psn") {
-			console.log("!psn");
-			console.log(JsonCache.info());
-			JsonCache.remove(xblDataUrl);
-			console.log(JsonCache.info());
-			getXblData();
-			console.log(JsonCache.info());
-		}
-	};
 });
 
 app.controller('BasicsController', function ($scope, $http, JsonCache, $window) {
