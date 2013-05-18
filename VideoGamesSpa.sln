@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamesRSkemp.VideoGamesSpa.Web", "JamesRSkemp.VideoGamesSpa.Web\JamesRSkemp.VideoGamesSpa.Web.csproj", "{369A9E8C-4E32-45BB-9392-B426101CA7CF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebsite", "SimpleWebsite\SimpleWebsite.csproj", "{ECCD8C28-500C-4F54-845D-51BD040F9840}"
 EndProject
 Global
@@ -11,10 +9,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{369A9E8C-4E32-45BB-9392-B426101CA7CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{369A9E8C-4E32-45BB-9392-B426101CA7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{369A9E8C-4E32-45BB-9392-B426101CA7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{369A9E8C-4E32-45BB-9392-B426101CA7CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECCD8C28-500C-4F54-845D-51BD040F9840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECCD8C28-500C-4F54-845D-51BD040F9840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECCD8C28-500C-4F54-845D-51BD040F9840}.Release|Any CPU.ActiveCfg = Release|Any CPU
