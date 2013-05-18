@@ -15,23 +15,35 @@ app.controller('GamesController', function ($scope, $http, JsonCache) {
 	};
 });
 
-app.controller('ProfileController', function ($scope, $http, JsonCache, $window) {
+app.controller('ProfileController', function ($scope, $route, $http, JsonCache, $templateCache, $window) {
+	var psnDataUrl = "Content/json/_psnProfile.xml.json";
+	var xblDataUrl = "Content/json/_xblProfile.xml.json";
+
+	var getPsnData = function () {
+		$http.get(psnDataUrl, { cache: JsonCache }).success(function (data) {
+			$scope.psnProfile = [];
+			$scope.psnProfile = data.PsnProfile;
+			$scope.psnPointsPercent = 100 * data.PsnProfile.Points / data.PsnProfile.PossiblePoints;
+			$scope.psnTrophiesPercent = 100 * data.PsnProfile.Trophies / data.PsnProfile.PossibleTrophies;
+			$scope.psnTrophiesBronzePercent = 100 * data.PsnProfile.TrophiesBronze / data.PsnProfile.PossibleTrophiesBronze;
+			$scope.psnTrophiesSilverPercent = 100 * data.PsnProfile.TrophiesSilver / data.PsnProfile.PossibleTrophiesSilver;
+			$scope.psnTrophiesGoldPercent = 100 * data.PsnProfile.TrophiesGold / data.PsnProfile.PossibleTrophiesGold;
+			$scope.psnTrophiesPlatinumPercent = 100 * data.PsnProfile.TrophiesPlatinum / data.PsnProfile.PossibleTrophiesPlatinum;
+		});
+	};
+	var getXblData = function () {
+		$http.get(xblDataUrl, { cache: JsonCache }).success(function (data) {
+			$scope.xblProfile = [];
+			$scope.xblProfile = data.XblProfile;
+			$scope.xblPointsPercent = 100 * data.XblProfile.GamerScore / data.XblProfile.PossibleGamerScore;
+			$scope.xblAchievementsPercent = 100 * data.XblProfile.Achievements / data.XblProfile.PossibleAchievements;
+		});
+	};
+
 	$scope.psnProfile = [];
 	$scope.xblProfile = [];
-	$http.get('Content/json/_psnProfile.xml.json', { cache: JsonCache }).success(function (data) {
-		$scope.psnProfile = data.PsnProfile;
-		$scope.psnPointsPercent = 100 * data.PsnProfile.Points / data.PsnProfile.PossiblePoints;
-		$scope.psnTrophiesPercent = 100 * data.PsnProfile.Trophies / data.PsnProfile.PossibleTrophies;
-		$scope.psnTrophiesBronzePercent = 100 * data.PsnProfile.TrophiesBronze / data.PsnProfile.PossibleTrophiesBronze;
-		$scope.psnTrophiesSilverPercent = 100 * data.PsnProfile.TrophiesSilver / data.PsnProfile.PossibleTrophiesSilver;
-		$scope.psnTrophiesGoldPercent = 100 * data.PsnProfile.TrophiesGold / data.PsnProfile.PossibleTrophiesGold;
-		$scope.psnTrophiesPlatinumPercent = 100 * data.PsnProfile.TrophiesPlatinum / data.PsnProfile.PossibleTrophiesPlatinum;
-	});
-	$http.get('Content/json/_xblProfile.xml.json', { cache: JsonCache }).success(function (data) {
-		$scope.xblProfile = data.XblProfile;
-		$scope.xblPointsPercent = 100 * data.XblProfile.GamerScore / data.XblProfile.PossibleGamerScore;
-		$scope.xblAchievementsPercent = 100 * data.XblProfile.Achievements / data.XblProfile.PossibleAchievements;
-	});
+	getPsnData();
+	getXblData();
 	$scope.percentClass = function (percent) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
@@ -47,6 +59,27 @@ app.controller('ProfileController', function ($scope, $http, JsonCache, $window)
 
 	// todo remove once I figure out what I'm doing with # of bronze trophies to percent display
 	$scope.Math = window.Math;
+
+	//console.log($route);
+	//console.log($templateCache.info());
+	$scope.refreshData = function (network) {
+		if (network != "xbl") {
+			console.log("!xbl");
+			console.log(JsonCache.info());
+			JsonCache.remove(psnDataUrl);
+			console.log(JsonCache.info());
+			getPsnData();
+			console.log(JsonCache.info());
+		}
+		if (network != "psn") {
+			console.log("!psn");
+			console.log(JsonCache.info());
+			JsonCache.remove(xblDataUrl);
+			console.log(JsonCache.info());
+			getXblData();
+			console.log(JsonCache.info());
+		}
+	};
 });
 
 app.controller('BasicsController', function ($scope, $http, JsonCache, $window) {
