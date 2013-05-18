@@ -1,10 +1,11 @@
 ﻿<h2>Game Basics</h2>
 <div id="videoGameBasics" data-ng-controller="BasicsController">
+	Filter by title: <input type="text" data-ng-model="search.Title" />
 	<div class="row-fluid">
 		<div class="span6 videoGameBasics">
 			<h3>PlayStation Network ({{psnGamesBasic.length}} total)</h3>
 			<ol>
-				<li data-ng-repeat="game in psnGamesBasic" data-lastplayed="{{extractDate(game.LastPlayed) | date:'yyyyMMddHHmmss'}}">
+				<li data-ng-repeat="game in psnGamesBasic | filter:search" data-lastplayed="{{extractDate(game.LastPlayed) | date:'yyyyMMddHHmmss'}}">
 					{{game.Title}} <span data-ng-class="percentClass(game.Progress)" class="percent">({{game.Progress}}%)</span>
 					<a href="#/psnGame/{{game.Id}}">?</a>
 					<div>{{game.EarnedAccomplishments}} of {{game.TotalAccomplishments}} / {{game.EarnedPoints}} of {{game.TotalPoints}}</div>
@@ -14,7 +15,7 @@
 		<div class="span6 videoGameBasics">
 			<h3>Xbox Live ({{xblGamesBasic.length}} total)</h3>
 			<ol>
-				<li data-ng-repeat="game in xblGamesBasic" data-lastplayed="{{extractDate(game.LastPlayed) | date:'yyyyMMddHHmmss'}}">
+				<li data-ng-repeat="game in xblGamesBasic | filter:search" data-lastplayed="{{extractDate(game.LastPlayed) | date:'yyyyMMddHHmmss'}}">
 					{{game.Title}} <span data-ng-class="percentClass(game.Progress)" class="percent">({{game.Progress}}%)</span>
 					<a href="#/xblGame/{{game.Id}}">?</a>
 					<div>{{game.EarnedAccomplishments}} of {{game.TotalAccomplishments}} / {{game.EarnedPoints}} of {{game.TotalPoints}}</div>

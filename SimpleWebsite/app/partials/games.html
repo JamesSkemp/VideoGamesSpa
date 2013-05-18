@@ -1,7 +1,7 @@
 ﻿<h2>games</h2>
 <div data-ng-controller="GamesController">
 	<p>Total games: {{games.length}}<br />
-		Filter by name: <input type="text" data-ng-model="search.Title" /><br />
+		Filter by title: <input type="text" data-ng-model="search.Title" /><br />
 		Quick display: <input type="checkbox" data-ng-model="quickDisplay" />
 	</p>
 	<button class="btn" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=0">
