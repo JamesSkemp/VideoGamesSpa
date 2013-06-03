@@ -1,16 +1,13 @@
 ﻿<div id="chartByDate" style="height:500px;"></div>
-<p style="margin-top:0;text-align:center;display:none;"><a href="#" id="chartByDateToggle" style="display:none;">Toggle combined</a></p>
 <script type="text/javascript">
 	(function ($) {
 		// Total earned
 		var psnDates = [];
 		var xblDates = [];
-		var combinedDates = [];
 
 		$.when(
 			$.getJSON('Content/json/_psnStats.xml.json'),
-			$.getJSON('Content/json/_xblStats.xml.json'),
-			$.getJSON('Content/json/_combinedStats.xml.json')
+			$.getJSON('Content/json/_xblStats.xml.json')
 		).done(function (dataPsn, dataXbl, dataCombined) {
 			for (var i = 0; i < dataPsn[0].PsnStats.AccomplishmentsByDate.length; i++) {
 				var date = dataPsn[0].PsnStats.AccomplishmentsByDate[i];
@@ -20,14 +17,9 @@
 				var date = dataXbl[0].XblStats.AccomplishmentsByDate[i];
 				xblDates.push([convertJsonDateTime(date.Date), date.TotalCount]);
 			}
-			for (var i = 0; i < dataCombined[0].CombinedStats.AccomplishmentsByDate.length; i++) {
-				var date = dataCombined[0].CombinedStats.AccomplishmentsByDate[i];
-				combinedDates.push([convertJsonDateTime(date.Date), date.TotalCount]);
-			}
 
 			psnDates.sort();
 			xblDates.sort();
-			combinedDates.sort();
 
 			var chartByDate = new Highcharts.StockChart(chartOptions);
 		});
@@ -58,20 +50,7 @@
 			}, {
 				name: 'XBL',
 				data: xblDates
-			}, {
-				name: 'Combined',
-				data: combinedDates
 			}]
 		};
-
-		$('#chartByDateToggle').on('click', function (e) {
-			e.preventDefault();
-			var series = chartByDate.series[2];
-			if (series.visible) {
-				series.hide();
-			} else {
-				series.show();
-			}
-		}).show();
 	})(jQuery);
 </script>
