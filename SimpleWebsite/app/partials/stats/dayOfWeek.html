@@ -1,0 +1,60 @@
+﻿<div id="chartByDayOfWeek" style="height:500px;"></div>
+<script type="text/javascript">
+	(function ($) {
+		// Day of week
+		var psnDayOfWeekPoints = [];
+		var xblDayOfWeekPoints = [];
+		var combinedDayofWeekPoints = [];
+		$.when(
+			$.getJSON('Content/json/_psnStats.xml.json'),
+			$.getJSON('Content/json/_xblStats.xml.json'),
+			$.getJSON('Content/json/_combinedStats.xml.json')
+		).done(function (dataPsn, dataXbl, dataCombined) {
+			for (var i = 0; i < dataPsn[0].PsnStats.AccomplishmentsByDayOfWeek.length; i++) {
+				var dayOfWeek = dataPsn[0].PsnStats.AccomplishmentsByDayOfWeek[i];
+				psnDayOfWeekPoints.push([dayOfWeek.DayOfWeekString, dayOfWeek.Count]);
+			}
+			for (var i = 0; i < dataXbl[0].XblStats.AccomplishmentsByDayOfWeek.length; i++) {
+				var dayOfWeek = dataXbl[0].XblStats.AccomplishmentsByDayOfWeek[i];
+				xblDayOfWeekPoints.push([dayOfWeek.DayOfWeekString, dayOfWeek.Count]);
+			}
+			for (var i = 0; i < dataCombined[0].CombinedStats.AccomplishmentsByDayOfWeek.length; i++) {
+				var dayOfWeek = dataCombined[0].CombinedStats.AccomplishmentsByDayOfWeek[i];
+				combinedDayofWeekPoints.push([dayOfWeek.DayOfWeekString, dayOfWeek.Count]);
+			}
+			var chartByDayOfWeek = new Highcharts.Chart(chartOptions);
+		});
+
+		var chartOptions = {
+			chart: {
+				renderTo: 'chartByDayOfWeek',
+				type: 'line'
+			},
+			tooltip: {
+				shared: true
+			},
+			title: {
+				text: 'Achievements/Trophies by Day of Week'
+			},
+			xAxis: {
+				tickInterval: 1,
+				categories: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+			},
+			yAxis: {
+				title: {
+					text: 'Total earned'
+				}
+			},
+			series: [{
+				name: 'PSN',
+				data: psnDayOfWeekPoints
+			}, {
+				name: 'XBL',
+				data: xblDayOfWeekPoints
+			}, {
+				name: 'Combined',
+				data: combinedDayofWeekPoints
+			}]
+		};
+	})(jQuery);
+</script>

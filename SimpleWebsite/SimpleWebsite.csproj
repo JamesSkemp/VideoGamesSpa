@@ -63,6 +63,12 @@
     <Content Include="app\partials\admin\home.html" />
     <Content Include="app\partials\basics.html" />
     <Content Include="app\partials\psnGame.html" />
+    <Content Include="app\partials\stats\yearMonth.html" />
+    <Content Include="app\partials\stats\dayOfWeek.html" />
+    <Content Include="app\partials\stats\hour.html" />
+    <Content Include="app\partials\stats\date.html" />
+    <Content Include="app\partials\stats\type.html" />
+    <Content Include="app\partials\stats\home.html" />
     <Content Include="app\partials\xblGame.html" />
     <Content Include="app\partials\games.html" />
     <Content Include="app\partials\home.html" />

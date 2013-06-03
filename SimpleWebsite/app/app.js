@@ -26,6 +26,24 @@ app.config(function ($routeProvider) {
 			//controller: 'XblGameController',
 			templateUrl: 'app/partials/xblGame.html'
 		})
+		.when('/stats', {
+			templateUrl: 'app/partials/stats/home.html'
+		})
+		.when('/stats/date', {
+			templateUrl: 'app/partials/stats/date.html'
+		})
+		.when('/stats/dayOfWeek', {
+			templateUrl: 'app/partials/stats/dayOfWeek.html'
+		})
+		.when('/stats/hour', {
+			templateUrl: 'app/partials/stats/hour.html'
+		})
+		.when('/stats/type', {
+			templateUrl: 'app/partials/stats/type.html'
+		})
+		.when('/stats/yearMonth', {
+			templateUrl: 'app/partials/stats/yearMonth.html'
+		})
 		.when('/admin', {
 			templateUrl: 'app/partials/admin/home.html'
 		})

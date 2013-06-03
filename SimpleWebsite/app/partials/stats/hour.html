@@ -1,0 +1,78 @@
+﻿<div id="chartByHour" style="height:500px;"></div>
+<script type="text/javascript">
+	(function ($) {
+		var currentDate = new Date();
+		// By hour
+		var psnHourPoints = [];
+		var xblHourPoints = [];
+		var combinedHourPoints = [];
+
+		var timeOptions = [];
+
+		for (var i = 0; i < 24; i++) {
+			var timeOutput = (
+				i == 0
+				? "12"
+				: (i > 12 ? i - 12 : i)
+			) + ":00 ";
+			timeOutput += (i >= 12 ? "pm" : "am");
+			timeOptions.push(timeOutput);
+		}
+
+		$.when(
+			$.getJSON('Content/json/_psnStats.xml.json'),
+			$.getJSON('Content/json/_xblStats.xml.json'),
+			$.getJSON('Content/json/_combinedStats.xml.json')
+		).done(function (dataPsn, dataXbl, dataCombined) {
+			for (var i = 0; i < dataPsn[0].PsnStats.AccomplishmentsByHour.length; i++) {
+				var dayOfWeek = dataPsn[0].PsnStats.AccomplishmentsByHour[i];
+				psnHourPoints.push([dayOfWeek.Hour, dayOfWeek.Count]);
+			}
+			for (var i = 0; i < dataXbl[0].XblStats.AccomplishmentsByHour.length; i++) {
+				var dayOfWeek = dataXbl[0].XblStats.AccomplishmentsByHour[i];
+				xblHourPoints.push([dayOfWeek.Hour, dayOfWeek.Count]);
+			}
+			for (var i = 0; i < dataCombined[0].CombinedStats.AccomplishmentsByHour.length; i++) {
+				var dayOfWeek = dataCombined[0].CombinedStats.AccomplishmentsByHour[i];
+				combinedHourPoints.push([dayOfWeek.Hour, dayOfWeek.Count]);
+			}
+			var chartByHour = new Highcharts.Chart(chartOptions);
+		});
+
+		var chartOptions = {
+			chart: {
+				renderTo: 'chartByHour',
+				type: 'line'
+			},
+			tooltip: {
+				shared: true
+			},
+			title: {
+				text: 'Achievements/Trophies by Hour'
+			},
+			xAxis: {
+				tickInterval: 1,
+				title: {
+					text: 'Hour'
+				},
+				categories: timeOptions
+			},
+			yAxis: {
+				title: {
+					text: 'Total earned'
+				},
+				min: 0
+			},
+			series: [{
+				name: 'PSN',
+				data: psnHourPoints
+			}, {
+				name: 'XBL',
+				data: xblHourPoints
+			}, {
+				name: 'Combined',
+				data: combinedHourPoints
+			}]
+		};
+	})(jQuery);
+</script>

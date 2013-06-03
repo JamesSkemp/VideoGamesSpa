@@ -1,0 +1,90 @@
+﻿<div id="chartByYearMonth" style="height:500px;"></div>
+<script type="text/javascript">
+	(function ($) {
+		// Year and month
+		var psnYearMonth = [];
+		var xblYearMonth = [];
+		var combinedYearMonth = [];
+
+		$.when(
+			$.getJSON('Content/json/_psnStats.xml.json'),
+			$.getJSON('Content/json/_xblStats.xml.json'),
+			$.getJSON('Content/json/_combinedStats.xml.json')
+		).done(function (dataPsn, dataXbl, dataCombined) {
+			for (var i = 0; i < dataPsn[0].PsnStats.AccomplishmentsByYearMonth.length; i++) {
+				var dayOfWeek = dataPsn[0].PsnStats.AccomplishmentsByYearMonth[i];
+				psnYearMonth.push([convertJsonDateTime(dayOfWeek.YearMonth), dayOfWeek.Count]);
+			}
+			for (var i = 0; i < dataXbl[0].XblStats.AccomplishmentsByYearMonth.length; i++) {
+				var dayOfWeek = dataXbl[0].XblStats.AccomplishmentsByYearMonth[i];
+				xblYearMonth.push([convertJsonDateTime(dayOfWeek.YearMonth), dayOfWeek.Count]);
+			}
+			for (var i = 0; i < dataCombined[0].CombinedStats.AccomplishmentsByYearMonth.length; i++) {
+				var dayOfWeek = dataCombined[0].CombinedStats.AccomplishmentsByYearMonth[i];
+				combinedYearMonth.push([convertJsonDateTime(dayOfWeek.YearMonth), dayOfWeek.Count]);
+			}
+
+			psnYearMonth.push([1220227200000, 0]); // 9/2008
+			psnYearMonth.push([1228089600000, 0]); // 12/2008
+			psnYearMonth.push([1230768000000, 0]); // 1/2009
+			psnYearMonth.push([1238544000000, 0]); // 4/2009
+			psnYearMonth.push([1251763200000, 0]); // 9/2009
+			psnYearMonth.push([1257033600000, 0]); // 11/2009
+			xblYearMonth.push([1267401600000, 0]); // 3/2010
+			xblYearMonth.push([1270080000000, 0]); // 4/2010
+			xblYearMonth.push([1272672000000, 0]); // 5/2010
+			xblYearMonth.push([1275350400000, 0]); // 6/2010
+			xblYearMonth.push([1277942400000, 0]); // 7/2010
+			xblYearMonth.push([1283299200000, 0]); // 9/2010
+			xblYearMonth.push([1293840000000, 0]); // 1/2011
+			xblYearMonth.push([1298937600000, 0]); // 3/2011
+			xblYearMonth.push([1314835200000, 0]); // 9/2011
+			xblYearMonth.push([1320105600000, 0]); // 11/2011
+			xblYearMonth.push([1338508800000, 0]); // 6/2012
+			combinedYearMonth.push([1220227200000, 0]);
+
+			psnYearMonth.sort();
+			xblYearMonth.sort();
+			combinedYearMonth.sort();
+
+			var chartByYearMonth = new Highcharts.Chart(chartOptions);
+		});
+
+		var convertJsonDateTime = function (dateTime) {
+			return parseInt(dateTime.replace(/(^.*\()|([+-].*$)/g, ''));
+		};
+
+		var chartOptions = {
+			chart: {
+				renderTo: 'chartByYearMonth',
+				zoomType: 'x'
+			},
+			tooltip: {
+				shared: true
+			},
+			title: {
+				text: 'Achievements/Trophies by Year/Month'
+			},
+			xAxis: {
+				type: 'datetime',
+				maxZoom: 12 * 30 * 24 * 3600 * 1000 // one year
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Total earned'
+				}
+			},
+			series: [{
+				name: 'PSN',
+				data: psnYearMonth
+			}, {
+				name: 'XBL',
+				data: xblYearMonth
+			}, {
+				name: 'Combined',
+				data: combinedYearMonth
+			}]
+		};
+	})(jQuery);
+</script>

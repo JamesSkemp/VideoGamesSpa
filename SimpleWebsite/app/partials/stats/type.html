@@ -1,0 +1,136 @@
+﻿<h2>Video Game Statistics - By Type</h2>
+<div id="chartByTypePsn" style="height:500px;"></div>
+<div id="chartByTypeXbl" style="height:500px;"></div>
+<script type="text/javascript">
+	(function ($) {
+		var psnTypes = [];
+		var psnEarned = [];
+		var psnUnearned = [];
+		var xblTypes = [];
+		var xblEarned = [];
+		var xblUnearned = [];
+
+		var psnEnum = ["BRONZE", "SILVER", "GOLD", "PLATINUM"];
+		
+		$.when(
+			$.getJSON('Content/json/_psnStats.xml.json'),
+			$.getJSON('Content/json/_xblStats.xml.json')
+		).done(function (dataPsn, dataXbl) {
+			var psnData = dataPsn[0].PsnStats.AccomplishmentsByType;
+			for (var i = 0; i < psnEnum.length; i++) {
+				for (var j = 0; j < psnData.length; j++) {
+					if (psnData[j].Type == psnEnum[i]) {
+						psnTypes.push(psnData[j].Type);
+						psnEarned.push(psnData[j].Earned);
+						psnUnearned.push(psnData[j].Unearned);
+						break;
+					}
+				}
+			}
+			var xblData = dataXbl[0].XblStats.AccomplishmentsByType;
+
+			xblData.sort(function (a, b) {
+				return parseInt(a.Type) - parseInt(b.Type);
+			});
+
+			for (var i = 0; i < xblData.length; i++) {
+				xblTypes.push(parseInt(xblData[i].Type));
+				xblEarned.push(xblData[i].Earned);
+				xblUnearned.push(xblData[i].Unearned);
+			}
+
+			var psnChart = new Highcharts.Chart(psnChartOptions);
+			var xblChart = new Highcharts.Chart(xblChartOptions);
+		});
+
+		var psnChartOptions = {
+			chart: {
+				renderTo: 'chartByTypePsn',
+				type: 'area'
+			},
+			title: {
+				text: 'PlayStation Network'
+			},
+			xAxis: {
+				categories: psnTypes
+			},
+			yAxis: {
+				title: {
+					text: "Percent"
+				},
+				tickInterval: 25
+			},
+			tooltip: {
+				formatter: function () {
+					return '' +
+					Highcharts.numberFormat(this.percentage, 1) + '% (' +
+					Highcharts.numberFormat(this.y, 0, ',') + ' / ' + Highcharts.numberFormat(this.total, 0, ',') + ') of ' + this.x +
+					' trophies are ' + this.series.name;
+				}
+			},
+			plotOptions: {
+				area: {
+					stacking: 'percent',
+					lineColor: '#ffffff',
+					lineWidth: 1,
+					marker: {
+						lineWidth: 1,
+						lineColor: '#ffffff'
+					}
+				}
+			},
+			series: [{
+				name: 'Unearned',
+				data: psnUnearned
+			}, {
+				name: 'Earned',
+				data: psnEarned
+			}]
+		};
+		var xblChartOptions = {
+			chart: {
+				renderTo: 'chartByTypeXbl',
+				type: 'area'
+			},
+			title: {
+				text: 'Xbox Live'
+			},
+			xAxis: {
+				categories: xblTypes
+			},
+			yAxis: {
+				title: {
+					text: "Percent"
+				},
+				tickInterval: 25
+			},
+			tooltip: {
+				formatter: function () {
+					return '' +
+					Highcharts.numberFormat(this.percentage, 1) + '% (' +
+					Highcharts.numberFormat(this.y, 0, ',') + ' / ' + Highcharts.numberFormat(this.total, 0, ',') + ') of ' + this.x +
+					' point achievements are ' + this.series.name;
+				}
+			},
+			plotOptions: {
+				area: {
+					stacking: 'percent',
+					lineColor: '#ffffff',
+					lineWidth: 1,
+					marker: {
+						lineWidth: 1,
+						lineColor: '#ffffff'
+					}
+				}
+			},
+			series: [{
+				name: 'Unearned',
+				data: xblUnearned
+			}, {
+				name: 'Earned',
+				data: xblEarned
+			}]
+		};
+
+	})(jQuery);
+</script>
