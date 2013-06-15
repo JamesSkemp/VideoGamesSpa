@@ -6,8 +6,19 @@ app.controller('GamesController', function ($scope, $http, JsonCache) {
 	$scope.currentPage = 0;
 	$scope.pageSize = 10;
 	$scope.games = [];
+	$scope.consoles = [];
 	$http.get('Content/json/VideoGames.json', { cache: JsonCache }).success(function (data) {
 		$scope.games = data.VideoGames;
+
+		for (var g = 0; g < data.VideoGames.length; g++) {
+			var console = data.VideoGames[g].System;
+			if ($scope.consoles.indexOf(console) == -1) {
+				$scope.consoles.push(console);
+			}
+		}
+		$scope.consoles.sort(function (a, b) {
+			return a.toLowerCase().localeCompare(b.toLowerCase());
+		});
 	});
 
 	$scope.numberOfPages = function () {

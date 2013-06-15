@@ -2,6 +2,10 @@
 <div data-ng-controller="GamesController">
 	<p>Total games: {{games.length}}<br />
 		Filter by title: <input type="text" data-ng-model="search.Title" /><br />
+		Filter by console: <select data-ng-model="search.System">
+			<option value=""></option>
+			<option data-ng-repeat="console in consoles">{{console}}</option>
+		</select><br />
 		Quick display: <input type="checkbox" data-ng-model="quickDisplay" />
 	</p>
 	<button class="btn" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=0">
