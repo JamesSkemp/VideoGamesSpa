@@ -14,9 +14,17 @@ app.config(function ($routeProvider) {
 			//controller: 'ProfileController',
 			templateUrl: 'app/partials/profile.html'
 		})
-		.when('/basics', {
+		.when('/basics/all', {
 			//controller: 'BasicsController',
-			templateUrl: 'app/partials/basics.html'
+			templateUrl: 'app/partials/basics/all.html'
+		})
+		.when('/basics/psn', {
+			//controller: 'BasicsController',
+			templateUrl: 'app/partials/basics/psn.html'
+		})
+		.when('/basics/xbl', {
+			//controller: 'BasicsController',
+			templateUrl: 'app/partials/basics/xbl.html'
 		})
 		.when('/psnGame/:gameId', {
 			//controller: 'PsnGameController',

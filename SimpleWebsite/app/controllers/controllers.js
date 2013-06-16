@@ -145,6 +145,38 @@ app.controller('BasicsController', function ($scope, $http, JsonCache, $window) 
 		return "";
 	}
 });
+app.controller('PsnBasicsController', function ($scope, $http, JsonCache, $window) {
+	$scope.psnGamesBasic = [];
+	$http.get('Content/json/_psnGamesBasic.xml.json', { cache: JsonCache }).success(function (data) {
+		$scope.psnGamesBasic = data.PsnGamesBasic;
+	});
+	$scope.percentClass = function (percent) {
+		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
+	};
+	$scope.extractDate = function (date) {
+		if (date.length > 6) {
+			var uglyDate = new Date(parseInt(date.substr(6)));
+			return uglyDate;
+		}
+		return "";
+	}
+});
+app.controller('XblBasicsController', function ($scope, $http, JsonCache, $window) {
+	$scope.xblGamesBasic = [];
+	$http.get('Content/json/_xblGamesBasic.xml.json', { cache: JsonCache }).success(function (data) {
+		$scope.xblGamesBasic = data.XblGamesBasic;
+	});
+	$scope.percentClass = function (percent) {
+		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
+	};
+	$scope.extractDate = function (date) {
+		if (date.length > 6) {
+			var uglyDate = new Date(parseInt(date.substr(6)));
+			return uglyDate;
+		}
+		return "";
+	}
+});
 
 app.controller('PsnGameController', function ($scope, $http, JsonCache, $routeParams) {
 	$scope.test = [];

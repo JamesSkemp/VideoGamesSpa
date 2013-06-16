@@ -19,8 +19,11 @@
 						<li class="nav-header">Content</li>
 						<li data-ng-class="{'active':getClass('/home')}"><a href="#/home">Home</a></li>
 						<li data-ng-class="{'active':getClass('/games')}"><a href="#/games">Games</a></li>
-						<li data-ng-class="{'active':getClass('/profile')}"><a href="#/profile">Profile</a></li>
-						<li data-ng-class="{'active':getClass('/basics')}"><a href="#/basics">Game Basics</a></li>
+						<li data-ng-class="{'active':getClass('/profile')}"><a href="#/profile">Profile</a><ul class="nav nav-list">
+							<li class="nav-header" data-ng-class="{'active':getClass('/basics/all')}">Game Basics</li>
+							<li data-ng-class="{'active':getClass('/basics/psn')}"><a href="#/basics/psn">PSN Games</a></li>
+							<li data-ng-class="{'active':getClass('/basics/xbl')}"><a href="#/basics/xbl">XBL Games</a></li>
+						</ul></li>
 						<li data-ng-class="{'active':getClass('/stats')}"><a href="#/stats">Stats</a></li>
 						<li class="nav-header">Admin</li>
 						<li data-ng-class="{'active':getClass('/admin')}"><a href="#/admin">Admin</a></li>

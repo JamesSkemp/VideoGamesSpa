@@ -14,7 +14,9 @@
 
 	$scope.templateFiles = [];
 	$scope.templateFiles.push('app/partials/home.html');
-	$scope.templateFiles.push('app/partials/basics.html');
+	$scope.templateFiles.push('app/partials/basics/all.html');
+	$scope.templateFiles.push('app/partials/basics/psn.html');
+	$scope.templateFiles.push('app/partials/basics/xbl.html');
 	$scope.templateFiles.push('app/partials/games.html');
 	$scope.templateFiles.push('app/partials/profile.html');
 	$scope.templateFiles.push('app/partials/psnGame.html');
