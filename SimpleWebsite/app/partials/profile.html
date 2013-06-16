@@ -24,16 +24,14 @@
 					<h4>PlayStation Network Trophies</h4>
 					<div>Points: {{psnProfile.Points}} of {{psnProfile.PossiblePoints}} <span class="percent" data-ng-class="percentClass(psnPointsPercent)">({{psnPointsPercent | number:3}}%)</span></div>
 					<div style="margin-left:2em;">
-						<!--todo--><!--50% = {{Math.round(psnProfile.PossiblePoints * .50)}} (8168 / 545 bronze trophies)<br />-->
-						<!--todo--><!--75% = {{Math.round(psnProfile.PossiblePoints * .75)}} (45139 / 3010 bronze trophies)<br />-->
-						{{quantityToPercent(psnProfile.Points, psnProfile.PossiblePoints, 50)}}<br />
-						{{quantityToPercent(psnProfile.Points, psnProfile.PossiblePoints, 75)}}<br />
+						{{quantityToPercent(psnProfile.Points, psnProfile.PossiblePoints, psnPointsGoal1, "psnPoints")}}<br />
+						{{quantityToPercent(psnProfile.Points, psnProfile.PossiblePoints, psnPointsGoal2)}}<br />
 					</div>
 					<div class="psnTrophies">
 						Trophies: {{psnProfile.Trophies}} of {{psnProfile.PossibleTrophies}} <span class="percent" data-ng-class="percentClass(psnTrophiesPercent)">({{psnTrophiesPercent | number:3}}%)</span>
 						<div style="margin-left:2em;">
-							{{quantityToPercent(psnProfile.Trophies, psnProfile.PossibleTrophies, 55)}}<br />
-							{{quantityToPercent(psnProfile.Trophies, psnProfile.PossibleTrophies, 75)}}<br />
+							{{quantityToPercent(psnProfile.Trophies, psnProfile.PossibleTrophies, psnTrophiesGoal1)}}<br />
+							{{quantityToPercent(psnProfile.Trophies, psnProfile.PossibleTrophies, psnTrophiesGoal2)}}<br />
 						</div>
 						<div>Bronze: {{psnProfile.TrophiesBronze}} of {{psnProfile.PossibleTrophiesBronze}} <span class="percent" data-ng-class="percentClass(psnTrophiesBronzePercent)">({{psnTrophiesBronzePercent | number:3}}%)</span></div>
 						<div>Silver: {{psnProfile.TrophiesSilver}} of {{psnProfile.PossibleTrophiesSilver}} <span class="percent" data-ng-class="percentClass(psnTrophiesSilverPercent)">({{psnTrophiesSilverPercent | number:3}}%)</span></div>
@@ -60,13 +58,13 @@
 					<h4>Xbox Live Achievements</h4>
 					<div>Gamerscore: {{xblProfile.GamerScore}} of {{xblProfile.PossibleGamerScore}} <span class="percent" data-ng-class="percentClass(xblPointsPercent)">({{xblPointsPercent | number:3}}%)</span></div>
 					<div style="margin-left:2em;">
-						{{quantityToPercent(xblProfile.GamerScore, xblProfile.PossibleGamerScore, 50)}}<br />
-						{{quantityToPercent(xblProfile.GamerScore, xblProfile.PossibleGamerScore, 75)}}<br />
+						{{quantityToPercent(xblProfile.GamerScore, xblProfile.PossibleGamerScore, xblGamerscoreGoal1)}}<br />
+						{{quantityToPercent(xblProfile.GamerScore, xblProfile.PossibleGamerScore, xblGamerscoreGoal2)}}<br />
 					</div>
 					<div>Achievements: {{xblProfile.Achievements}} of {{xblProfile.PossibleAchievements}} <span class="percent" data-ng-class="percentClass(xblAchievementsPercent)">({{xblAchievementsPercent | number:3}}%)</span></div>
 					<div style="margin-left:2em;">
-						{{quantityToPercent(xblProfile.Achievements, xblProfile.PossibleAchievements, 55)}}<br />
-						{{quantityToPercent(xblProfile.Achievements, xblProfile.PossibleAchievements, 75)}}<br />
+						{{quantityToPercent(xblProfile.Achievements, xblProfile.PossibleAchievements, xblAchievementsGoal1)}}<br />
+						{{quantityToPercent(xblProfile.Achievements, xblProfile.PossibleAchievements, xblAchievementsGoal2)}}<br />
 					</div>
 				</div>
 			</div>

@@ -40,6 +40,10 @@ app.controller('ProfileController', function ($scope, $route, $http, JsonCache, 
 			$scope.psnTrophiesSilverPercent = 100 * data.PsnProfile.TrophiesSilver / data.PsnProfile.PossibleTrophiesSilver;
 			$scope.psnTrophiesGoldPercent = 100 * data.PsnProfile.TrophiesGold / data.PsnProfile.PossibleTrophiesGold;
 			$scope.psnTrophiesPlatinumPercent = 100 * data.PsnProfile.TrophiesPlatinum / data.PsnProfile.PossibleTrophiesPlatinum;
+			$scope.psnPointsGoal1 = $scope.percentGoal(data.PsnProfile.Points, data.PsnProfile.PossiblePoints, 1);
+			$scope.psnPointsGoal2 = $scope.percentGoal(data.PsnProfile.Points, data.PsnProfile.PossiblePoints, 2);
+			$scope.psnTrophiesGoal1 = $scope.percentGoal(data.PsnProfile.Trophies, data.PsnProfile.PossibleTrophies, 1);
+			$scope.psnTrophiesGoal2 = $scope.percentGoal(data.PsnProfile.Trophies, data.PsnProfile.PossibleTrophies, 2);
 		});
 	};
 	var getXblData = function () {
@@ -48,6 +52,10 @@ app.controller('ProfileController', function ($scope, $route, $http, JsonCache, 
 			$scope.xblProfile = data.XblProfile;
 			$scope.xblPointsPercent = 100 * data.XblProfile.GamerScore / data.XblProfile.PossibleGamerScore;
 			$scope.xblAchievementsPercent = 100 * data.XblProfile.Achievements / data.XblProfile.PossibleAchievements;
+			$scope.xblGamerscoreGoal1 = $scope.percentGoal(data.XblProfile.GamerScore, data.XblProfile.PossibleGamerScore, 1);
+			$scope.xblGamerscoreGoal2 = $scope.percentGoal(data.XblProfile.GamerScore, data.XblProfile.PossibleGamerScore, 2);
+			$scope.xblAchievementsGoal1 = $scope.percentGoal(data.XblProfile.Achievements, data.XblProfile.PossibleAchievements, 1);
+			$scope.xblAchievementsGoal2 = $scope.percentGoal(data.XblProfile.Achievements, data.XblProfile.PossibleAchievements, 2);
 		});
 	};
 
@@ -58,18 +66,60 @@ app.controller('ProfileController', function ($scope, $route, $http, JsonCache, 
 	$scope.percentClass = function (percent) {
 		return { percent0: percent >= 0, percent25: percent >= 25, percent50: percent >= 50, percent75: percent >= 75, percent100: percent >= 100 }
 	};
-	$scope.quantityToPercent = function (obtained, total, percent) {
+	$scope.quantityToPercent = function (obtained, total, percent, outputType) {
 		if (total * percent / 100 <= obtained) {
 			return "";
 		} else {
-			//50% = {{Math.round(xblProfile.PossibleAchievements * .50)}} (56)
 			var numberAtPercent = $window.Math.round(total * percent / 100);
-			return percent + "% = " + numberAtPercent + " (" + (numberAtPercent - obtained) + ")";
+			var trophyInfo = "";
+			if (outputType == "psnPoints") {
+				trophyInfo = $scope.trophiesToPointsGoal(numberAtPercent - obtained);
+			}
+			return percent + "% = " + numberAtPercent + " (" + (numberAtPercent - obtained) + trophyInfo + ")";
 		}
 	};
-
-	// todo remove once I figure out what I'm doing with # of bronze trophies to percent display
-	$scope.Math = window.Math;
+	$scope.percentGoal = function (obtained, total, goal) {
+		var currentPercent = Math.floor(obtained / total * 100);
+		var goalPercent = 0;
+		if (goal == 1) {
+			// Goal one is the next percent evenly divisible by 5.
+			for (var i = 5; i <= 100; i = i + 5) {
+				if (currentPercent < i) {
+					goalPercent = i;
+					break;
+				}
+			}
+		} else {
+			// Goal two is 25/50/75/100.
+			currentPercent = currentPercent + 5;
+			for (var i = 25; i <= 100; i = i + 25) {
+				if (currentPercent < i) {
+					goalPercent = i;
+					break;
+				}
+			}
+		}
+		return goalPercent;
+	};
+	$scope.trophiesToPointsGoal = function (goal) {
+		var output = "";
+		if (goal > 0) {
+			var bronze = 15, silver = 30, gold = 90;
+			var totalBronze = Math.round(goal / bronze);
+			var totalSilver = Math.round(goal / silver);
+			var totalGold = Math.round(goal / gold);
+			if (totalBronze > 0) {
+				output += " / " + totalBronze + " bronze";
+				if (totalSilver > 0) {
+					output += " | " + totalSilver + " silver";
+					if (totalGold > 0) {
+						output += " | " + totalGold + " gold";
+					}
+				}
+			}
+		}
+		return output;
+	};
 
 	//console.log($route);
 	//console.log($templateCache.info());
