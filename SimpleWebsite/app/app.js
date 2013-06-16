@@ -14,9 +14,9 @@ app.config(function ($routeProvider) {
 			//controller: 'ProfileController',
 			templateUrl: 'app/partials/profile.html'
 		})
-		.when('/basics/all', {
+		.when('/basics', {
 			//controller: 'BasicsController',
-			templateUrl: 'app/partials/basics/all.html'
+			templateUrl: 'app/partials/basics/home.html'
 		})
 		.when('/basics/psn', {
 			//controller: 'BasicsController',

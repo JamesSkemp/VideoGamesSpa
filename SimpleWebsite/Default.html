@@ -19,12 +19,16 @@
 						<li class="nav-header">Content</li>
 						<li data-ng-class="{'active':getClass('/home')}"><a href="#/home">Home</a></li>
 						<li data-ng-class="{'active':getClass('/games')}"><a href="#/games">Games</a></li>
-						<li data-ng-class="{'active':getClass('/profile')}"><a href="#/profile">Profile</a><ul class="nav nav-list">
-							<li class="nav-header" data-ng-class="{'active':getClass('/basics/all')}">Game Basics</li>
-							<li data-ng-class="{'active':getClass('/basics/psn')}"><a href="#/basics/psn">PSN Games</a></li>
-							<li data-ng-class="{'active':getClass('/basics/xbl')}"><a href="#/basics/xbl">XBL Games</a></li>
-						</ul></li>
-						<li data-ng-class="{'active':getClass('/stats')}"><a href="#/stats">Stats</a></li>
+						<li data-ng-class="{'active':getClass('/profile')}"><a href="#/profile">Profile</a></li>
+						<li class="nav-header">Game Basics</li>
+						<li data-ng-class="{'active':getClass('/basics/psn')}"><a href="#/basics/psn">PSN Games</a></li>
+						<li data-ng-class="{'active':getClass('/basics/xbl')}"><a href="#/basics/xbl">XBL Games</a></li>
+						<li class="nav-header">Stats</li>
+						<li data-ng-class="{'active':getClass('/stats/yearMonth')}"><a href="#/stats/yearMonth">By Year/Month</a></li>
+						<li data-ng-class="{'active':getClass('/stats/dayOfWeek')}"><a href="#/stats/dayOfWeek">By Day of Week</a></li>
+						<li data-ng-class="{'active':getClass('/stats/hour')}"><a href="#/stats/hour">By Hour</a></li>
+						<li data-ng-class="{'active':getClass('/stats/type')}"><a href="#/stats/type">By Type</a></li>
+						<li data-ng-class="{'active':getClass('/stats/date')}"><a href="#/stats/date">By Date</a></li>
 						<li class="nav-header">Admin</li>
 						<li data-ng-class="{'active':getClass('/admin')}"><a href="#/admin">Admin</a></li>
 					</ul>

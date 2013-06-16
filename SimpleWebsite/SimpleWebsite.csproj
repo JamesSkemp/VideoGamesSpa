@@ -61,7 +61,9 @@
     <Content Include="app\controllers\adminControllers.js" />
     <Content Include="app\controllers\controllers.js" />
     <Content Include="app\partials\admin\home.html" />
-    <Content Include="app\partials\basics.html" />
+    <Content Include="app\partials\basics\home.html" />
+    <Content Include="app\partials\basics\psn.html" />
+    <Content Include="app\partials\basics\xbl.html" />
     <Content Include="app\partials\psnGame.html" />
     <Content Include="app\partials\stats\yearMonth.html" />
     <Content Include="app\partials\stats\dayOfWeek.html" />
