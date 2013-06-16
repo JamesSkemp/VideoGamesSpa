@@ -21,10 +21,17 @@
 	$scope.templateFiles.push('app/partials/profile.html');
 	$scope.templateFiles.push('app/partials/psnGame.html');
 	$scope.templateFiles.push('app/partials/xblGame.html');
+	$scope.templateFiles.push('app/partials/stats/date.html');
+	$scope.templateFiles.push('app/partials/stats/dayOfWeek.html');
+	$scope.templateFiles.push('app/partials/stats/home.html');
+	$scope.templateFiles.push('app/partials/stats/hour.html');
+	$scope.templateFiles.push('app/partials/stats/type.html');
+	$scope.templateFiles.push('app/partials/stats/yearMonth.html');
 	$scope.templateFiles.push('app/partials/admin/home.html');
 
 	//console.log($scope.templateFiles);
 	//console.log($templateCache);
+	//console.log($route);
 	//console.log($templateCache.info());
 
 	$scope.emptyDataCache = function () {
