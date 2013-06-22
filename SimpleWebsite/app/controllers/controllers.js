@@ -70,7 +70,7 @@ app.controller('ProfileController', function ($scope, $route, $http, JsonCache, 
 		if (total * percent / 100 <= obtained) {
 			return "";
 		} else {
-			var numberAtPercent = $window.Math.round(total * percent / 100);
+			var numberAtPercent = Math.ceil(total * percent / 100);
 			var trophyInfo = "";
 			if (outputType == "psnPoints") {
 				trophyInfo = $scope.trophiesToPointsGoal(numberAtPercent - obtained);
@@ -82,17 +82,17 @@ app.controller('ProfileController', function ($scope, $route, $http, JsonCache, 
 		var currentPercent = Math.floor(obtained / total * 100);
 		var goalPercent = 0;
 		if (goal == 1) {
-			// Goal one is the next percent evenly divisible by 5.
-			for (var i = 5; i <= 100; i = i + 5) {
+			// Goal one is the next percent.
+			for (var i = 1; i <= 100; i = i + 1) {
 				if (currentPercent < i) {
 					goalPercent = i;
 					break;
 				}
 			}
 		} else {
-			// Goal two is 25/50/75/100.
-			currentPercent = currentPercent + 5;
-			for (var i = 25; i <= 100; i = i + 25) {
+			// Goal two is the next percent evently divisible by 5.
+			currentPercent = currentPercent + 1;
+			for (var i = 5; i <= 100; i = i + 5) {
 				if (currentPercent < i) {
 					goalPercent = i;
 					break;
