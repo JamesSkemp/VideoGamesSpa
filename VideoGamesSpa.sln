@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebsite", "SimpleWebsite\SimpleWebsite.csproj", "{ECCD8C28-500C-4F54-845D-51BD040F9840}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiParser", "ApiParser\ApiParser.csproj", "{EBD158EA-EF97-4553-A18C-A919F5385B45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{ECCD8C28-500C-4F54-845D-51BD040F9840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECCD8C28-500C-4F54-845D-51BD040F9840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECCD8C28-500C-4F54-845D-51BD040F9840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD158EA-EF97-4553-A18C-A919F5385B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD158EA-EF97-4553-A18C-A919F5385B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD158EA-EF97-4553-A18C-A919F5385B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD158EA-EF97-4553-A18C-A919F5385B45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
