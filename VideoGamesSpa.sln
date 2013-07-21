@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebsite", "SimpleWebsite\SimpleWebsite.csproj", "{ECCD8C28-500C-4F54-845D-51BD040F9840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiParser", "ApiParser\ApiParser.csproj", "{EBD158EA-EF97-4553-A18C-A919F5385B45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGamesSpa.ApiParser", "ApiParser\VideoGamesSpa.ApiParser.csproj", "{EBD158EA-EF97-4553-A18C-A919F5385B45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

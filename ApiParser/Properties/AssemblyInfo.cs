@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ApiParser")]
+[assembly: AssemblyTitle("VideoGamesSpa.ApiParser")]
 [assembly: AssemblyDescription("Class library to parse XML data from APIs for use with Video Game Spa.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JamesRSkemp.com")]
-[assembly: AssemblyProduct("ApiParser")]
+[assembly: AssemblyProduct("VideoGamesSpa.ApiParser")]
 [assembly: AssemblyCopyright("Copyright © James Skemp 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
