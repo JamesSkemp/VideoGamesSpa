@@ -192,6 +192,7 @@ app.controller('PsnGameController', function ($scope, $http, JsonCache, $routePa
 					$scope.test.newPointsPercent = $scope.game.PointsPercentage;
 					$scope.test.newItemsPercent = $scope.game.TrophyPercentage;
 					$scope.graphicUrl = 'Content/images/psn/' + $scope.game.Id + '.png';
+					$scope.platform = $scope.game.Platform.replace("psp2", "PlayStation Vita").replace("ps3", "PlayStation 3").replace(",", ", ");
 					break;
 				}
 			}

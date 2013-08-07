@@ -1,5 +1,5 @@
 ﻿<div id="videoGameDetails" class="videoGamesPsn" data-ng-controller="PsnGameController">
-	<h2>{{game.Title}} (PS3)</h2>
+	<h2>{{game.Title}} ({{platform}})</h2>
 	<div class="lastPlayed">Last played: {{extractDate(game.LastPlayed) | date:'medium'}}</div>
 	<div class="graphic">
 		<img data-ng-src="{{graphicUrl}}" alt="{{game.Title}}" />
