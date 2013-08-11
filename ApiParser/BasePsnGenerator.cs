@@ -11,7 +11,7 @@ namespace VideoGamesSpa.ApiParser
 	public class BasePsnGenerator : BaseGenerator
 	{
 		public List<Models.PsnGame> Games { get; set; }
-		//public List<Models.Trophy> PsnTrophies { get; set; }
+		public List<Models.Trophy> Trophies { get; set; }
 		//public List<Models.PlayedGame> PsnGamesBasic { get; set; }
 		//public Models.PsnProfile PsnProfile { get; set; }
 		//public Models.VideoGameStats PsnStats { get; set; }
