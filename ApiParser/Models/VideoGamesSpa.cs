@@ -74,6 +74,22 @@ namespace VideoGamesSpa.ApiParser.Models
 						var contentsTrophies = serializerTrophies.Serialize(new { PsnTrophies = ((PsnApiAr.Generator)generator).Trophies });
 						File.WriteAllText(this.SpaDirectory + "_psnTrophies.xml" + ".json", contentsTrophies);
 						#endregion
+
+						#region Games Basic
+						var psnXmlSerializerGamesBasic = new XmlSerializer(((PsnApiAr.Generator)generator).GamesBasic.GetType());
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_psnGamesBasic.xml"))
+						{
+							psnXmlSerializerGamesBasic.Serialize(writer, ((PsnApiAr.Generator)generator).GamesBasic);
+						}
+
+						JavaScriptSerializer psnSerializerGamesBasic = new JavaScriptSerializer();
+						var psnContents = psnSerializerGamesBasic.Serialize(new { PsnGamesBasic = ((PsnApiAr.Generator)generator).GamesBasic });
+						File.WriteAllText(this.SpaDirectory + "_psnGamesBasic.xml" + ".json", psnContents);
+						#endregion
+
+
+
+
 					}
 				}
 			}

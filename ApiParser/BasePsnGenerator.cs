@@ -12,7 +12,7 @@ namespace VideoGamesSpa.ApiParser
 	{
 		public List<Models.PsnGame> Games { get; set; }
 		public List<Models.Trophy> Trophies { get; set; }
-		//public List<Models.PlayedGame> PsnGamesBasic { get; set; }
+		public List<Models.PlayedGame> GamesBasic { get; set; }
 		//public Models.PsnProfile PsnProfile { get; set; }
 		//public Models.VideoGameStats PsnStats { get; set; }
 
