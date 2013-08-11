@@ -87,7 +87,15 @@ namespace VideoGamesSpa.ApiParser.Models
 						File.WriteAllText(this.SpaDirectory + "_psnGamesBasic.xml" + ".json", psnContents);
 						#endregion
 
-
+						#region Profile
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_psnProfile.xml"))
+						{
+							(((PsnApiAr.Generator)generator).Profile).Serialize(writer);
+						}
+						JavaScriptSerializer psnSerializer = new JavaScriptSerializer();
+						var psnContentsProfile = psnSerializer.Serialize(new { PsnProfile = ((PsnApiAr.Generator)generator).Profile });
+						File.WriteAllText(this.SpaDirectory + "_psnProfile.xml" + ".json", psnContentsProfile);
+						#endregion
 
 
 					}

@@ -54,6 +54,9 @@
     <Compile Include="Models\PsnGame.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\PsnProfile.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\SimpleAccomplishment.cs">
       <SubType>Code</SubType>
     </Compile>
