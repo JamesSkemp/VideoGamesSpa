@@ -44,8 +44,17 @@
     <Compile Include="BasePsnGenerator.cs" />
     <Compile Include="BaseXblGenerator.cs" />
     <Compile Include="Combined\Generator.cs" />
+    <Compile Include="Models\Achievement.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\BasicAchievement.cs" />
     <Compile Include="Models\BasicTrophy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\HiddenAchievement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\OfflineAchievement.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\PlayedGame.cs">

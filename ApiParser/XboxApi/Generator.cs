@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using VideoGamesSpa.ApiParser.Models;
+using VideoGamesSpa.ApiParser.Utilities;
 
 namespace VideoGamesSpa.ApiParser.XboxApi
 {
@@ -21,6 +23,23 @@ namespace VideoGamesSpa.ApiParser.XboxApi
 				DebugInfo.Add("xboxapi generator");
 				var profileXml = XDocument.Load(this.ProfileFile.FullName);
 				var gamesXml = XDocument.Load(this.GamesFile.FullName);
+
+				var xblGames = new List<XblGame>();
+				// todo
+				#region Games
+				#endregion
+
+				#region Achievements
+				#endregion
+
+				#region Games Basic
+				#endregion
+
+				#region Profile
+				#endregion
+
+				#region Stats
+				#endregion
 			}
 			return false;
 		}

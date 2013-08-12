@@ -19,8 +19,8 @@ namespace VideoGamesSpa.ApiParser
 		public string OfflineAchievementsXmlPath { get; set; }
 
 		public List<Models.XblGame> Games { get; set; }
-		//public List<Models.Achievement> XblAchievements { get; set; }
-		//public List<Models.PlayedGame> XblGamesBasic { get; set; }
+		public List<Models.Achievement> Achievements { get; set; }
+		public List<Models.PlayedGame> GamesBasic { get; set; }
 		//public Models.XblProfile XblProfile { get; set; }
 		//public Models.VideoGameStats XblStats { get; set; }
 
