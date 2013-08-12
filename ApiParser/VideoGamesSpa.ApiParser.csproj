@@ -60,10 +60,34 @@
     <Compile Include="Models\SimpleAccomplishment.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Stats\AccomplishmentByDate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Stats\AccomplishmentByDayOfWeek.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Stats\AccomplishmentByDayOfWeekAndHour.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Stats\AccomplishmentByHour.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Stats\AccomplishmentByType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Stats\AccomplishmentByYearMonth.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Trophy.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\VideoGameAccomplishment.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\VideoGamesSpa.cs" />
+    <Compile Include="Models\VideoGameStats.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\XblGame.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -78,9 +102,7 @@
     <Compile Include="XboxApi\Generator.cs" />
     <Compile Include="XboxLeaders\Generator.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Stats\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
