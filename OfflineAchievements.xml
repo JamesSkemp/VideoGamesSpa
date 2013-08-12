@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XblOfflineAchievements xmlns="http://media.jamesrskemp.com/ns/XblOfflineAchievements/201308"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://media.jamesrskemp.com/ns/XblOfflineAchievements/201308 http://media.jamesrskemp.com/xsd/2013/08/XblOfflineAchievements.xsd">
+	<!--
+	36 1161889999 Dante's Inferno™ Give Me Strength
+	6 1161889999 Dante's Inferno™ Like Father Like Son
+	-->
+	<Achievement Id="37" GameId="1414596758" Earned="2013-02-23T07:38:00" Notes="Darksiders II Grim Reaping"/>
+	<!--
+	33 1161889984 Dragon Age: Origins Shadow
+	34 1161889984 Dragon Age: Origins Archmage
+	32 1161889984 Dragon Age: Origins Master of Arms
+	-->
+	<Achievement Id="3" GameId="1161889984" Earned="2010-08-17T16:24:00" Notes="Dragon Age: Origins Conscripted"/>
+	<Achievement Id="6" GameId="1161889984" Earned="2010-08-20T14:47:00" Notes="Dragon Age: Origins Kinslayer"/>
+	<Achievement Id="4" GameId="1161889984" Earned="2010-08-20T14:11:00" Notes="Dragon Age: Origins Harrowed"/>
+	<Achievement Id="5" GameId="1161889984" Earned="2010-08-15T10:50:00" Notes="Dragon Age: Origins Casteless"/>
+	<Achievement Id="2" GameId="1161889984" Earned="2010-08-15T09:32:00" Notes="Dragon Age: Origins Corrupted"/>
+	<Achievement Id="30" GameId="1161889984" Earned="2010-08-17T17:17:01" Notes="Dragon Age: Origins Bloodied"/>
+	<Achievement Id="1" GameId="1161889984" Earned="2010-08-17T17:17:00" Notes="Dragon Age: Origins Last of Your Line"/>
+	<!--
+	4 1297287213 Gears of War 2 Girl About Town
+	3 1297287213 Gears of War 2 Escort Service
+	28 1397819355 Infinite Undiscovery Hero of the Millennium
+	-->
+	<Achievement Id="82" GameId="1297287122" Earned="2012-05-28T08:00:00" Notes="Kameo And the winner is..."/>
+	<!--
+	1 1297287144 Mass Effect Medal of Honor 
+	28 1297287144 Mass Effect Tactician 
+	43 1297287144 Mass Effect Paramour 
+	-->
+</XblOfflineAchievements>
