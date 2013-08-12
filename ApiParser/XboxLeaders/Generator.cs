@@ -244,8 +244,7 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 				#region Profile
 				var xblProfile = new XblProfile();
 				xblProfile.Id = gamesXml.Element("xbox").Element("data").Element("gamertag").Value;
-				// todo fix once this returns what it had before
-				xblProfile.Pic = ""; //profileXml.Element("xbox").Element("data").Element("AvatarTile").Value;
+				xblProfile.Pic = profileXml.Element("xbox").Element("data").Element("avatar").Element("tile").Value;
 				xblProfile.GamerScore = int.Parse(gamesXml.Element("xbox").Element("data").Element("gamerscore").Element("current").Value);
 				xblProfile.PossibleGamerScore = int.Parse(gamesXml.Element("xbox").Element("data").Element("gamerscore").Element("total").Value);
 				xblProfile.Achievements = int.Parse(gamesXml.Element("xbox").Element("data").Element("achievements").Element("current").Value);
