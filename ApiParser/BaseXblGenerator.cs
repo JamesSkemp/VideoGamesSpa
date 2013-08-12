@@ -13,8 +13,12 @@ namespace VideoGamesSpa.ApiParser
 		/// Directory that contains XML files with data about hidden achievements.
 		/// </summary>
 		public string HiddenAchievementsDirectory { get; set; }
+		/// <summary>
+		/// Full path to the XML file that contains data about achievements earned offline.
+		/// </summary>
+		public string OfflineAchievementsXmlPath { get; set; }
 
-		public List<Models.XblGame> XblGames { get; set; }
+		public List<Models.XblGame> Games { get; set; }
 		//public List<Models.Achievement> XblAchievements { get; set; }
 		//public List<Models.PlayedGame> XblGamesBasic { get; set; }
 		//public Models.XblProfile XblProfile { get; set; }

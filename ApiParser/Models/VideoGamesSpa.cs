@@ -47,7 +47,7 @@ namespace VideoGamesSpa.ApiParser.Models
 				{
 					generator.Run();
 					// todo, make this pretty
-					if (generator.GetType().Namespace.Contains("PsnApiAr"))
+					if (generator.GetType().Namespace.EndsWith("PsnApiAr"))
 					{
 						#region Games
 						var psnXmlSerializerGames = new XmlSerializer(((PsnApiAr.Generator)generator).Games.GetType());
@@ -107,6 +107,14 @@ namespace VideoGamesSpa.ApiParser.Models
 						var contents = serializer.Serialize(new { PsnStats = ((PsnApiAr.Generator)generator).Stats });
 						File.WriteAllText(this.SpaDirectory + "_psnStats.xml" + ".json", contents);
 						#endregion
+					}
+					else if (generator.GetType().Namespace.EndsWith("XboxApi"))
+					{
+						// todo
+					}
+					else if (generator.GetType().Namespace.EndsWith("XboxLeaders"))
+					{
+						// todo
 					}
 				}
 			}
