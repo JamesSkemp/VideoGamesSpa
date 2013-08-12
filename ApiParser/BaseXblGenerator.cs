@@ -21,8 +21,8 @@ namespace VideoGamesSpa.ApiParser
 		public List<Models.XblGame> Games { get; set; }
 		public List<Models.Achievement> Achievements { get; set; }
 		public List<Models.PlayedGame> GamesBasic { get; set; }
-		//public Models.XblProfile XblProfile { get; set; }
-		//public Models.VideoGameStats XblStats { get; set; }
+		public Models.XblProfile Profile { get; set; }
+		public Models.VideoGameStats Stats { get; set; }
 
 		public BaseXblGenerator()
 			: base()

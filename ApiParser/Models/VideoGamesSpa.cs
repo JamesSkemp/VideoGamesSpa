@@ -166,9 +166,24 @@ namespace VideoGamesSpa.ApiParser.Models
 						#endregion
 
 						#region Profile
+						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblProfile.xml"))
+						{
+							(((XboxLeaders.Generator)generator).Profile).Serialize(xblWriter);
+						}
+						JavaScriptSerializer xblSerializerProfile = new JavaScriptSerializer();
+						var xblContentsProfile = xblSerializerProfile.Serialize(new { XblProfile = ((XboxLeaders.Generator)generator).Profile });
+						File.WriteAllText(this.SpaDirectory + "_xblProfile.xml" + ".json", xblContentsProfile);
 						#endregion
 
 						#region Stats
+						using (StreamWriter statsWriter = new StreamWriter(this.SpaDirectory + "_xblStats.xml"))
+						{
+							((XboxLeaders.Generator)generator).Stats.Serialize(statsWriter);
+						}
+
+						JavaScriptSerializer serializerStats = new JavaScriptSerializer();
+						var contents = serializerStats.Serialize(new { XblStats = ((XboxLeaders.Generator)generator).Stats });
+						File.WriteAllText(this.SpaDirectory + "_xblStats.xml" + ".json", contents);
 						#endregion
 					}
 				}

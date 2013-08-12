@@ -242,10 +242,25 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 				#endregion
 
 				#region Profile
+				var xblProfile = new XblProfile();
+				xblProfile.Id = gamesXml.Element("xbox").Element("data").Element("gamertag").Value;
+				// todo fix once this returns what it had before
+				xblProfile.Pic = ""; //profileXml.Element("xbox").Element("data").Element("AvatarTile").Value;
+				xblProfile.GamerScore = int.Parse(gamesXml.Element("xbox").Element("data").Element("gamerscore").Element("current").Value);
+				xblProfile.PossibleGamerScore = int.Parse(gamesXml.Element("xbox").Element("data").Element("gamerscore").Element("total").Value);
+				xblProfile.Achievements = int.Parse(gamesXml.Element("xbox").Element("data").Element("achievements").Element("current").Value);
+				xblProfile.PossibleAchievements = int.Parse(gamesXml.Element("xbox").Element("data").Element("achievements").Element("total").Value);
+				xblProfile.CompletionPercent = double.Parse(gamesXml.Element("xbox").Element("data").Element("progress").Value);
+				xblProfile.TotalGames = this.Games.Count;
+				this.Profile = xblProfile;
 				#endregion
 
 				#region Stats
+				var accomplishments = VideoGameAccomplishment.ParseAchievements(this.Achievements);
+				this.Stats = new VideoGameStats(accomplishments);
 				#endregion
+
+				return true;
 			}
 			return false;
 		}

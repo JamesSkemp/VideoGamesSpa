@@ -166,7 +166,6 @@ namespace VideoGamesSpa.ApiParser.PsnApiAr
 				this.Stats = new VideoGameStats(accomplishments);
 				#endregion
 
-
 				return true;
 			}
 			return false;
