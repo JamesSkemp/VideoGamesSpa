@@ -14,7 +14,7 @@ namespace VideoGamesSpa.ApiParser
 		public List<Models.Trophy> Trophies { get; set; }
 		public List<Models.PlayedGame> GamesBasic { get; set; }
 		public Models.PsnProfile Profile { get; set; }
-		//public Models.VideoGameStats PsnStats { get; set; }
+		public Models.VideoGameStats Stats { get; set; }
 
 		public BasePsnGenerator()
 			: base()
