@@ -113,7 +113,6 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 				this.Games = xblGames;
 				#endregion
 
-				// todo
 				#region Achievements
 				var xblAchievements = new List<Achievement>();
 

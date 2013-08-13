@@ -92,6 +92,60 @@ namespace VideoGamesSpa.ApiParser.XboxApi
 
 				// todo
 				#region Achievements
+				var xblAchievements = new List<Achievement>();
+
+				foreach (var xblFile in this.GameFiles)
+				{
+					var fileXml = XDocument.Load(xblFile.FullName).Root;
+					var gameTitle = fileXml.Element("Game").Element("Name").Value;
+					var gameId = fileXml.Element("Game").Element("ID").Value;
+
+					var achievements = fileXml.Elements("Achievements");
+					if (achievements == null || achievements.Count() == 1)
+					{
+						continue;
+					}
+
+					foreach (var achievement in achievements)
+					{
+						var gameAchievement = new Achievement();
+						gameAchievement.Title = achievement.Element("Name").Value;
+						gameAchievement.Id = achievement.Element("ID").Value;
+						gameAchievement.Image = achievement.Element("TileUrl").Value;
+						gameAchievement.Description = achievement.Element("Description").Value;
+						gameAchievement.Earned =
+							!string.IsNullOrWhiteSpace(achievement.Element("EarnedOn-UNIX").Value) ?
+								(achievement.Element("IsOffline").Value != "1" || achievement.Element("EarnedOn-UNIX").Value.StartsWith("-")
+								? Shared.ConvertStringToDateTime(achievement.Element("EarnedOn-UNIX").Value)
+								: new DateTime())
+							: null;
+						if (gameAchievement.Earned.HasValue)
+						{
+							if (gameAchievement.Earned.Value.Year < 1981)
+							{
+								gameAchievement.Earned = new DateTime();
+							}
+						}
+						gameAchievement.GamerScore = achievement.Element("Score").Value
+							.Replace("--", "0");
+						gameAchievement.GameTitle = gameTitle;
+						gameAchievement.GameId = gameId;
+
+						if (string.IsNullOrWhiteSpace(achievement.Element("Name").Value))
+						{
+							gameAchievement.UpdateHiddenAchievement(achievement.Element("ID").Value, gameId, this.HiddenAchievementsDirectory);
+						}
+
+						if (gameAchievement.Earned == new DateTime())
+						{
+							gameAchievement.UpdateOfflineAchievement(achievement.Element("ID").Value, gameId, this.OfflineAchievementsXmlPath);
+						}
+
+						xblAchievements.Add(gameAchievement);
+					}
+					xblAchievements = xblAchievements.OrderBy(a => a.GameTitle).ThenByDescending(a => a.Earned).ToList();
+					this.Achievements = xblAchievements;
+				}
 				#endregion
 
 				#region Games Basic
