@@ -202,8 +202,9 @@ namespace VideoGamesSpa.ApiParser.XboxApi
 				this.Profile = xblProfile;
 				#endregion
 
-				// todo
 				#region Stats
+				var accomplishments = VideoGameAccomplishment.ParseAchievements(this.Achievements);
+				this.Stats = new VideoGameStats(accomplishments);
 				#endregion
 			}
 			return false;

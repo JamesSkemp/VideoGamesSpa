@@ -116,7 +116,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							xblXmlSerializerGames.Serialize(writer, ((XboxApi.Generator)generator).Games);
 						}
-
 						JavaScriptSerializer serializerGames = new JavaScriptSerializer();
 						var contentsGames = serializerGames.Serialize(new { XblGames = ((XboxApi.Generator)generator).Games });
 						File.WriteAllText(this.SpaDirectory + "_xblGames.xml" + ".json", contentsGames);
@@ -128,7 +127,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							xblXmlSerializerAchievements.Serialize(writer, ((XboxApi.Generator)generator).Achievements);
 						}
-
 						JavaScriptSerializer serializerAchievements = new JavaScriptSerializer();
 						var contentsAchievements = serializerAchievements.Serialize(new { XblAchievements = ((XboxApi.Generator)generator).Achievements });
 						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
@@ -140,7 +138,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							xblXmlSerializerGamesBasic.Serialize(xblWriter, ((XboxApi.Generator)generator).GamesBasic);
 						}
-
 						JavaScriptSerializer xblSerializer = new JavaScriptSerializer();
 						var xblContents = xblSerializer.Serialize(new { XblGamesBasic = ((XboxApi.Generator)generator).GamesBasic });
 						File.WriteAllText(this.SpaDirectory + "_xblGamesBasic.xml" + ".json", xblContents);
@@ -155,18 +152,16 @@ namespace VideoGamesSpa.ApiParser.Models
 						var xblContentsProfile = xblSerializerProfile.Serialize(new { XblProfile = ((XboxApi.Generator)generator).Profile });
 						File.WriteAllText(this.SpaDirectory + "_xblProfile.xml" + ".json", xblContentsProfile);
 						#endregion
-						/*
+						
 						#region Stats
 						using (StreamWriter statsWriter = new StreamWriter(this.SpaDirectory + "_xblStats.xml"))
 						{
 							((XboxApi.Generator)generator).Stats.Serialize(statsWriter);
 						}
-
 						JavaScriptSerializer serializerStats = new JavaScriptSerializer();
 						var contents = serializerStats.Serialize(new { XblStats = ((XboxApi.Generator)generator).Stats });
 						File.WriteAllText(this.SpaDirectory + "_xblStats.xml" + ".json", contents);
 						#endregion
-						*/
 					}
 					else if (generator.GetType().Namespace.EndsWith("XboxLeaders"))
 					{
