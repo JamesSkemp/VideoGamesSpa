@@ -110,21 +110,63 @@ namespace VideoGamesSpa.ApiParser.Models
 					}
 					else if (generator.GetType().Namespace.EndsWith("XboxApi"))
 					{
-						// todo
 						#region Games
-						#endregion
+						var xblXmlSerializerGames = new XmlSerializer(((XboxApi.Generator)generator).Games.GetType());
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_xblGames.xml"))
+						{
+							xblXmlSerializerGames.Serialize(writer, ((XboxApi.Generator)generator).Games);
+						}
 
+						JavaScriptSerializer serializerGames = new JavaScriptSerializer();
+						var contentsGames = serializerGames.Serialize(new { XblGames = ((XboxApi.Generator)generator).Games });
+						File.WriteAllText(this.SpaDirectory + "_xblGames.xml" + ".json", contentsGames);
+						#endregion
+						/*
 						#region Achievements
+						var xblXmlSerializerAchievements = new XmlSerializer(((XboxApi.Generator)generator).Achievements.GetType());
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_xblAchievements.xml"))
+						{
+							xblXmlSerializerAchievements.Serialize(writer, ((XboxApi.Generator)generator).Achievements);
+						}
+
+						JavaScriptSerializer serializerAchievements = new JavaScriptSerializer();
+						var contentsAchievements = serializerAchievements.Serialize(new { XblAchievements = ((XboxApi.Generator)generator).Achievements });
+						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
 						#endregion
 
 						#region Games Basic
+						var xblXmlSerializerGamesBasic = new XmlSerializer(((XboxApi.Generator)generator).GamesBasic.GetType());
+						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblGamesBasic.xml"))
+						{
+							xblXmlSerializerGamesBasic.Serialize(xblWriter, ((XboxApi.Generator)generator).GamesBasic);
+						}
+
+						JavaScriptSerializer xblSerializer = new JavaScriptSerializer();
+						var xblContents = xblSerializer.Serialize(new { XblGamesBasic = ((XboxApi.Generator)generator).GamesBasic });
+						File.WriteAllText(this.SpaDirectory + "_xblGamesBasic.xml" + ".json", xblContents);
 						#endregion
 
 						#region Profile
+						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblProfile.xml"))
+						{
+							(((XboxApi.Generator)generator).Profile).Serialize(xblWriter);
+						}
+						JavaScriptSerializer xblSerializerProfile = new JavaScriptSerializer();
+						var xblContentsProfile = xblSerializerProfile.Serialize(new { XblProfile = ((XboxApi.Generator)generator).Profile });
+						File.WriteAllText(this.SpaDirectory + "_xblProfile.xml" + ".json", xblContentsProfile);
 						#endregion
 
 						#region Stats
+						using (StreamWriter statsWriter = new StreamWriter(this.SpaDirectory + "_xblStats.xml"))
+						{
+							((XboxApi.Generator)generator).Stats.Serialize(statsWriter);
+						}
+
+						JavaScriptSerializer serializerStats = new JavaScriptSerializer();
+						var contents = serializerStats.Serialize(new { XblStats = ((XboxApi.Generator)generator).Stats });
+						File.WriteAllText(this.SpaDirectory + "_xblStats.xml" + ".json", contents);
 						#endregion
+						*/
 					}
 					else if (generator.GetType().Namespace.EndsWith("XboxLeaders"))
 					{
@@ -152,7 +194,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
 						#endregion
 
-						// todo
 						#region Games Basic
 						var xblXmlSerializerGamesBasic = new XmlSerializer(((XboxLeaders.Generator)generator).GamesBasic.GetType());
 						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblGamesBasic.xml"))
