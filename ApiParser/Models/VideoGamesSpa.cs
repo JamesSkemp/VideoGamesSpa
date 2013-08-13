@@ -43,6 +43,9 @@ namespace VideoGamesSpa.ApiParser.Models
 		{
 			if (this.Ready)
 			{
+				var trophiesFile = "";
+				var achievementsFile = "";
+
 				foreach (var generator in this.Generators)
 				{
 					generator.Run();
@@ -55,7 +58,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							psnXmlSerializerGames.Serialize(writer, ((PsnApiAr.Generator)generator).Games);
 						}
-
 						JavaScriptSerializer serializerGames = new JavaScriptSerializer();
 						var contentsGames = serializerGames.Serialize(new { PsnGames = ((PsnApiAr.Generator)generator).Games });
 						File.WriteAllText(this.SpaDirectory + "_psnGames.xml" + ".json", contentsGames);
@@ -68,7 +70,7 @@ namespace VideoGamesSpa.ApiParser.Models
 							//StreamWriter writer = new StreamWriter(outputDirectory + "_psnTrophies.xml");
 							psnXmlSerializerTrophies.Serialize(writer, ((PsnApiAr.Generator)generator).Trophies);
 						}
-
+						trophiesFile = this.SpaDirectory + "_psnTrophies.xml";
 						JavaScriptSerializer serializerTrophies = new JavaScriptSerializer();
 						serializerTrophies.MaxJsonLength = Int32.MaxValue;
 						var contentsTrophies = serializerTrophies.Serialize(new { PsnTrophies = ((PsnApiAr.Generator)generator).Trophies });
@@ -102,7 +104,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							((PsnApiAr.Generator)generator).Stats.Serialize(statsWriter);
 						}
-
 						JavaScriptSerializer serializer = new JavaScriptSerializer();
 						var contents = serializer.Serialize(new { PsnStats = ((PsnApiAr.Generator)generator).Stats });
 						File.WriteAllText(this.SpaDirectory + "_psnStats.xml" + ".json", contents);
@@ -127,6 +128,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							xblXmlSerializerAchievements.Serialize(writer, ((XboxApi.Generator)generator).Achievements);
 						}
+						achievementsFile = this.SpaDirectory + "_xblAchievements.xml";
 						JavaScriptSerializer serializerAchievements = new JavaScriptSerializer();
 						var contentsAchievements = serializerAchievements.Serialize(new { XblAchievements = ((XboxApi.Generator)generator).Achievements });
 						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
@@ -171,7 +173,6 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							xblXmlSerializerGames.Serialize(writer, ((XboxLeaders.Generator)generator).Games);
 						}
-
 						JavaScriptSerializer serializerGames = new JavaScriptSerializer();
 						var contentsGames = serializerGames.Serialize(new { XblGames = ((XboxLeaders.Generator)generator).Games });
 						File.WriteAllText(this.SpaDirectory + "_xblGames.xml" + ".json", contentsGames);
@@ -183,7 +184,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							xblXmlSerializerAchievements.Serialize(writer, ((XboxLeaders.Generator)generator).Achievements);
 						}
-
+						achievementsFile = this.SpaDirectory + "_xblAchievements.xml";
 						JavaScriptSerializer serializerAchievements = new JavaScriptSerializer();
 						var contentsAchievements = serializerAchievements.Serialize(new { XblAchievements = ((XboxLeaders.Generator)generator).Achievements });
 						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
@@ -216,12 +217,24 @@ namespace VideoGamesSpa.ApiParser.Models
 						{
 							((XboxLeaders.Generator)generator).Stats.Serialize(statsWriter);
 						}
-
 						JavaScriptSerializer serializerStats = new JavaScriptSerializer();
 						var contents = serializerStats.Serialize(new { XblStats = ((XboxLeaders.Generator)generator).Stats });
 						File.WriteAllText(this.SpaDirectory + "_xblStats.xml" + ".json", contents);
 						#endregion
 					}
+				}
+				if (!string.IsNullOrWhiteSpace(trophiesFile) && !string.IsNullOrWhiteSpace(achievementsFile))
+				{
+					#region Combined stats
+					var combinedStats = Combined.Generator.CombinedStats(trophiesFile, achievementsFile);
+					using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_combinedStats.xml"))
+					{
+						combinedStats.Serialize(writer);
+					}
+					JavaScriptSerializer serializerStats = new JavaScriptSerializer();
+					var contents = serializerStats.Serialize(new { CombinedStats = combinedStats });
+					File.WriteAllText(this.SpaDirectory + "_combinedStats.xml" + ".json", contents);
+					#endregion
 				}
 			}
 			return false;
