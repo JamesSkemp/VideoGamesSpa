@@ -46,6 +46,10 @@ namespace VideoGamesSpa.ApiParser.Models
 				var trophiesFile = "";
 				var achievementsFile = "";
 
+				if (!Directory.Exists(this.SpaDirectory))
+				{
+					Directory.CreateDirectory(this.SpaDirectory);
+				}
 				foreach (var generator in this.Generators)
 				{
 					generator.Run();
