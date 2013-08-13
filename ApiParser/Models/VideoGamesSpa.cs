@@ -133,7 +133,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var contentsAchievements = serializerAchievements.Serialize(new { XblAchievements = ((XboxApi.Generator)generator).Achievements });
 						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
 						#endregion
-						/*
+						
 						#region Games Basic
 						var xblXmlSerializerGamesBasic = new XmlSerializer(((XboxApi.Generator)generator).GamesBasic.GetType());
 						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblGamesBasic.xml"))
@@ -145,7 +145,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var xblContents = xblSerializer.Serialize(new { XblGamesBasic = ((XboxApi.Generator)generator).GamesBasic });
 						File.WriteAllText(this.SpaDirectory + "_xblGamesBasic.xml" + ".json", xblContents);
 						#endregion
-
+						
 						#region Profile
 						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblProfile.xml"))
 						{
@@ -155,7 +155,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var xblContentsProfile = xblSerializerProfile.Serialize(new { XblProfile = ((XboxApi.Generator)generator).Profile });
 						File.WriteAllText(this.SpaDirectory + "_xblProfile.xml" + ".json", xblContentsProfile);
 						#endregion
-
+						/*
 						#region Stats
 						using (StreamWriter statsWriter = new StreamWriter(this.SpaDirectory + "_xblStats.xml"))
 						{

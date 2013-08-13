@@ -90,7 +90,6 @@ namespace VideoGamesSpa.ApiParser.XboxApi
 				this.Games = xblGames;
 				#endregion
 
-				// todo
 				#region Achievements
 				var xblAchievements = new List<Achievement>();
 
@@ -149,11 +148,61 @@ namespace VideoGamesSpa.ApiParser.XboxApi
 				#endregion
 
 				#region Games Basic
+				var xblGamesBasic = new List<PlayedGame>();
+				foreach (var game in gamesXml.Descendants("Games"))
+				{
+					var playedGame = new PlayedGame();
+					playedGame.Id = game.Element("ID").Value;
+					playedGame.Title = game.Element("Name").Value;
+					playedGame.Image = game.Element("BoxArt").Element("Small").Value;
+					playedGame.LastPlayed = Shared.ConvertStringToDateTime(game.Element("Progress").Element("LastPlayed-UNIX").Value).Value;
+					playedGame.EarnedPoints = int.Parse(game.Element("Progress").Element("Score").Value);
+					playedGame.EarnedAccomplishments = int.Parse(game.Element("Progress").Element("Achievements").Value);
+					playedGame.TotalPoints = int.Parse(game.Element("PossibleGamerscore").Value);
+					playedGame.TotalAccomplishments = int.Parse(game.Element("PossibleAchievements").Value);
+					playedGame.Progress = Math.Round((double)playedGame.EarnedAccomplishments / playedGame.TotalAccomplishments * 100, 1);
+					playedGame.Platform = "xbox";
+
+					var gameAccomplishments = xblAchievements.Where(a => a.GameId == playedGame.Id).Select(a => new
+					{
+						Type = a.GamerScore,
+						Earned = a.Earned
+					});
+
+					var allTypes = gameAccomplishments.GroupBy(a => a.Type);
+					foreach (var type in allTypes)
+					{
+						playedGame.Accomplishments.Add(new SimpleAccomplishment
+						{
+							Type = type.Key,
+							Value = int.Parse(type.Key),
+							Total = type.Count(),
+							Earned = type.Where(t => t.Earned.HasValue).Count()
+						});
+					}
+					playedGame.Accomplishments = playedGame.Accomplishments.OrderBy(a => a.Value).ToList();
+					if (playedGame.Accomplishments.Count > 0)
+					{
+						xblGamesBasic.Add(playedGame);
+					}
+				}
+				this.GamesBasic = xblGamesBasic;
 				#endregion
 
 				#region Profile
+				var xblProfile = new XblProfile();
+				xblProfile.Id = gamesXml.Element("Data").Element("Player").Element("Gamertag").Value;
+				xblProfile.Pic = profileXml.Element("Data").Element("Player").Element("Avatar").Element("Gamertile").Element("Large").Value;
+				xblProfile.GamerScore = int.Parse(gamesXml.Element("Data").Element("Player").Element("Gamerscore").Value);
+				xblProfile.PossibleGamerScore = xblGamesBasic.Sum(g => g.TotalPoints);
+				xblProfile.Achievements = xblGamesBasic.Sum(g => g.EarnedAccomplishments);
+				xblProfile.PossibleAchievements = xblGamesBasic.Sum(g => g.TotalAccomplishments);
+				xblProfile.CompletionPercent = double.Parse(gamesXml.Element("Data").Element("Player").Element("PercentComplete").Value);
+				xblProfile.TotalGames = this.Games.Count;
+				this.Profile = xblProfile;
 				#endregion
 
+				// todo
 				#region Stats
 				#endregion
 			}
