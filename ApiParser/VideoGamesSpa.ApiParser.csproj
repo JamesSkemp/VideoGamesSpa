@@ -69,6 +69,7 @@
     <Compile Include="Models\SimpleAccomplishment.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\SpaData.cs" />
     <Compile Include="Models\Stats\AccomplishmentByDate.cs">
       <SubType>Code</SubType>
     </Compile>
