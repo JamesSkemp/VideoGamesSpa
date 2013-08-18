@@ -40,6 +40,10 @@ namespace VideoGamesSpa.ApiParser.Models
 			this.SpaDirectory = spaDirectory;
 		}
 
+		/// <summary>
+		/// Parse all XML files in the directory the Spa data has been saved to, and populate the data model.
+		/// </summary>
+		/// <returns>True as long as there are no exceptions thrown.</returns>
 		public bool LoadData()
 		{
 			if (string.IsNullOrWhiteSpace(this.SpaDirectory))
