@@ -280,10 +280,13 @@
     <Content Include="Content\images\xbl\1297287392.jpg" />
     <Content Include="Content\images\xbl\1297287405.jpg" />
     <Content Include="Content\images\xbl\1297287647.jpg" />
+    <Content Include="Content\images\xbl\1297287741.jpg" />
     <Content Include="Content\images\xbl\1297290145.jpg" />
     <Content Include="Content\images\xbl\1297290148.jpg" />
     <Content Include="Content\images\xbl\1297290152.jpg" />
     <Content Include="Content\images\xbl\1297290172.jpg" />
+    <Content Include="Content\images\xbl\1297290225.jpg" />
+    <Content Include="Content\images\xbl\1297290226.jpg" />
     <Content Include="Content\images\xbl\1313671128.jpg" />
     <Content Include="Content\images\xbl\1313671145.jpg" />
     <Content Include="Content\images\xbl\1313671179.jpg" />
@@ -315,6 +318,7 @@
     <Content Include="Content\images\xbl\1480657361.jpg" />
     <Content Include="Content\images\xbl\1480657520.jpg" />
     <Content Include="Content\images\xbl\1480657521.jpg" />
+    <Content Include="Content\images\xbl\1480657549.jpg" />
     <Content Include="Content\images\xbl\1480657766.jpg" />
     <Content Include="Content\images\xbl\1480657785.jpg" />
     <Content Include="Content\images\xbl\1480659548.jpg" />
