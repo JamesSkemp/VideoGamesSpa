@@ -113,6 +113,65 @@ namespace VideoGamesSpa.ApiParser.Models
 						File.WriteAllText(this.SpaDirectory + "_psnStats.xml" + ".json", contents);
 						#endregion
 					}
+					else if (generator.GetType().Namespace.EndsWith("PsnWrapper"))
+					{
+						#region Games
+						var psnXmlSerializerGames = new XmlSerializer(((PsnWrapper.Generator)generator).Games.GetType());
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_psnGames.xml"))
+						{
+							psnXmlSerializerGames.Serialize(writer, ((PsnWrapper.Generator)generator).Games);
+						}
+						JavaScriptSerializer serializerGames = new JavaScriptSerializer();
+						var contentsGames = serializerGames.Serialize(new { PsnGames = ((PsnWrapper.Generator)generator).Games });
+						File.WriteAllText(this.SpaDirectory + "_psnGames.xml" + ".json", contentsGames);
+						#endregion
+
+						#region Trophies
+						var psnXmlSerializerTrophies = new XmlSerializer(((PsnWrapper.Generator)generator).Trophies.GetType());
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_psnTrophies.xml"))
+						{
+							//StreamWriter writer = new StreamWriter(outputDirectory + "_psnTrophies.xml");
+							psnXmlSerializerTrophies.Serialize(writer, ((PsnWrapper.Generator)generator).Trophies);
+						}
+						trophiesFile = this.SpaDirectory + "_psnTrophies.xml";
+						JavaScriptSerializer serializerTrophies = new JavaScriptSerializer();
+						serializerTrophies.MaxJsonLength = Int32.MaxValue;
+						var contentsTrophies = serializerTrophies.Serialize(new { PsnTrophies = ((PsnWrapper.Generator)generator).Trophies });
+						File.WriteAllText(this.SpaDirectory + "_psnTrophies.xml" + ".json", contentsTrophies);
+						#endregion
+
+						#region Games Basic
+						var psnXmlSerializerGamesBasic = new XmlSerializer(((PsnWrapper.Generator)generator).GamesBasic.GetType());
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_psnGamesBasic.xml"))
+						{
+							psnXmlSerializerGamesBasic.Serialize(writer, ((PsnWrapper.Generator)generator).GamesBasic);
+						}
+
+						JavaScriptSerializer psnSerializerGamesBasic = new JavaScriptSerializer();
+						var psnContents = psnSerializerGamesBasic.Serialize(new { PsnGamesBasic = ((PsnWrapper.Generator)generator).GamesBasic });
+						File.WriteAllText(this.SpaDirectory + "_psnGamesBasic.xml" + ".json", psnContents);
+						#endregion
+
+						#region Profile
+						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_psnProfile.xml"))
+						{
+							(((PsnWrapper.Generator)generator).Profile).Serialize(writer);
+						}
+						JavaScriptSerializer psnSerializer = new JavaScriptSerializer();
+						var psnContentsProfile = psnSerializer.Serialize(new { PsnProfile = ((PsnWrapper.Generator)generator).Profile });
+						File.WriteAllText(this.SpaDirectory + "_psnProfile.xml" + ".json", psnContentsProfile);
+						#endregion
+
+						#region Stats
+						using (StreamWriter statsWriter = new StreamWriter(this.SpaDirectory + "_psnStats.xml"))
+						{
+							((PsnWrapper.Generator)generator).Stats.Serialize(statsWriter);
+						}
+						JavaScriptSerializer serializer = new JavaScriptSerializer();
+						var contents = serializer.Serialize(new { PsnStats = ((PsnWrapper.Generator)generator).Stats });
+						File.WriteAllText(this.SpaDirectory + "_psnStats.xml" + ".json", contents);
+						#endregion
+					}
 					else if (generator.GetType().Namespace.EndsWith("XboxApi"))
 					{
 						#region Games
@@ -125,7 +184,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var contentsGames = serializerGames.Serialize(new { XblGames = ((XboxApi.Generator)generator).Games });
 						File.WriteAllText(this.SpaDirectory + "_xblGames.xml" + ".json", contentsGames);
 						#endregion
-						
+
 						#region Achievements
 						var xblXmlSerializerAchievements = new XmlSerializer(((XboxApi.Generator)generator).Achievements.GetType());
 						using (StreamWriter writer = new StreamWriter(this.SpaDirectory + "_xblAchievements.xml"))
@@ -137,7 +196,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var contentsAchievements = serializerAchievements.Serialize(new { XblAchievements = ((XboxApi.Generator)generator).Achievements });
 						File.WriteAllText(this.SpaDirectory + "_xblAchievements.xml" + ".json", contentsAchievements);
 						#endregion
-						
+
 						#region Games Basic
 						var xblXmlSerializerGamesBasic = new XmlSerializer(((XboxApi.Generator)generator).GamesBasic.GetType());
 						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblGamesBasic.xml"))
@@ -148,7 +207,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var xblContents = xblSerializer.Serialize(new { XblGamesBasic = ((XboxApi.Generator)generator).GamesBasic });
 						File.WriteAllText(this.SpaDirectory + "_xblGamesBasic.xml" + ".json", xblContents);
 						#endregion
-						
+
 						#region Profile
 						using (StreamWriter xblWriter = new StreamWriter(this.SpaDirectory + "_xblProfile.xml"))
 						{
@@ -158,7 +217,7 @@ namespace VideoGamesSpa.ApiParser.Models
 						var xblContentsProfile = xblSerializerProfile.Serialize(new { XblProfile = ((XboxApi.Generator)generator).Profile });
 						File.WriteAllText(this.SpaDirectory + "_xblProfile.xml" + ".json", xblContentsProfile);
 						#endregion
-						
+
 						#region Stats
 						using (StreamWriter statsWriter = new StreamWriter(this.SpaDirectory + "_xblStats.xml"))
 						{
