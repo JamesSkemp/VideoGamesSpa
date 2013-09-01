@@ -21,7 +21,7 @@ After updating the template to your taste, you'll need to actually generate your
 
 First, you'll need one or more of the following wrappers.
 
-* Wrapper (.NET) for psnapi.com.ar : https://github.com/JamesSkemp/PsnApiArWrapper
+* Wrapper (.NET) for unofficial PSN API : https://github.com/JamesSkemp/PsnWrapper
 * Wrapper (.NET) for XboxLeaders.com : https://github.com/JamesSkemp/XboxLeadersWrapper
 * Wrapper (.NET) for XboxApi.com : https://github.com/JamesSkemp/XboxApiWrapper
 
@@ -33,8 +33,8 @@ Once you've done that you can use the included library to compile the data. An e
 	var spa = new Spa();
 	spa.SpaDirectory = @"C:\Users\James\Desktop\Video games\";
 	// PlayStation Network
-	var psnGenerator = new VideoGamesSpa.ApiParser.PsnApiAr.Generator();
-	psnGenerator.ApiOutputDirectory = @"C:\Users\James\Projects\GitHub\VideoGamesSpa\_output\strivinglife\psnapi\";
+	var psnGenerator = new VideoGamesSpa.ApiParser.PsnWrapper.Generator();
+	psnGenerator.ApiOutputDirectory = @"C:\Users\James\Projects\GitHub\VideoGamesSpa\_output\strivinglife\psnwrapper\";
 	psnGenerator.XmlNameFormat = "{0}";
 	// Xbox Live option 1
 	var xblApiGenerator = new VideoGamesSpa.ApiParser.XboxApi.Generator();
