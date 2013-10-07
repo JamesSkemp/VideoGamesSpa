@@ -140,6 +140,7 @@
     <Content Include="Content\images\psn\NPWR00843_00.png" />
     <Content Include="Content\images\psn\NPWR00845_00.png" />
     <Content Include="Content\images\psn\NPWR00851_00.png" />
+    <Content Include="Content\images\psn\NPWR00855_00.png" />
     <Content Include="Content\images\psn\NPWR00867_00.png" />
     <Content Include="Content\images\psn\NPWR00881_00.png" />
     <Content Include="Content\images\psn\NPWR00885_00.png" />
@@ -238,6 +239,8 @@
     <Content Include="Content\images\psn\NPWR03852_00.png" />
     <Content Include="Content\images\psn\NPWR04063_00.png" />
     <Content Include="Content\images\psn\NPWR04102_00.png" />
+    <Content Include="Content\images\psn\NPWR04182_00.png" />
+    <Content Include="Content\images\psn\NPWR04192_00.png" />
     <Content Include="Content\images\psn\NPWR04375_00.png" />
     <Content Include="Content\images\psn\NPWR04472_00.png" />
     <Content Include="Content\images\psn\NPWR04479_00.png" />
