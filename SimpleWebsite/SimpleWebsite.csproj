@@ -655,11 +655,11 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
-    <None Include="Scripts\jquery-1.10.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.1.js" />
-    <Content Include="Scripts\jquery-1.10.1.min.js" />
-    <Content Include="Scripts\jquery-migrate-1.1.1.js" />
-    <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\VideoGameProfile.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -671,7 +671,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.1.min.map" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
