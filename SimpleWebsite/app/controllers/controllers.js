@@ -17,7 +17,7 @@ app.controller('GamesController', function ($scope, $http, JsonCache) {
 				$scope.consoles.push(console);
 			}
 			var purchasePlace = data.VideoGames[g].Place;
-			if ($scope.purchasePlaces.indexOf(purchasePlace) == -1) {
+			if (purchasePlace != '' && $scope.purchasePlaces.indexOf(purchasePlace) == -1) {
 				$scope.purchasePlaces.push(purchasePlace);
 			}
 		}
