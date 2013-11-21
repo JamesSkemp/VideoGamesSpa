@@ -7,6 +7,7 @@ app.controller('GamesController', function ($scope, $http, JsonCache) {
 	$scope.pageSize = 10;
 	$scope.games = [];
 	$scope.consoles = [];
+	$scope.purchasePlaces = [];
 	$http.get('Content/json/VideoGames.json', { cache: JsonCache }).success(function (data) {
 		$scope.games = data.VideoGames;
 
@@ -15,8 +16,15 @@ app.controller('GamesController', function ($scope, $http, JsonCache) {
 			if ($scope.consoles.indexOf(console) == -1) {
 				$scope.consoles.push(console);
 			}
+			var purchasePlace = data.VideoGames[g].Place;
+			if ($scope.purchasePlaces.indexOf(purchasePlace) == -1) {
+				$scope.purchasePlaces.push(purchasePlace);
+			}
 		}
 		$scope.consoles.sort(function (a, b) {
+			return a.toLowerCase().localeCompare(b.toLowerCase());
+		});
+		$scope.purchasePlaces.sort(function (a, b) {
 			return a.toLowerCase().localeCompare(b.toLowerCase());
 		});
 	});
