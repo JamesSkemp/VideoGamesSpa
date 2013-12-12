@@ -62,7 +62,8 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 							.Replace("&hellip;", "...")
 							.Replace("&amp;", "&")
 							.Replace("&auml;", "ä")
-							.Replace("&#039;", "'");
+							.Replace("&#039;", "'")
+							.Trim();
 						gameAchievement.Image = (!string.IsNullOrWhiteSpace(achievement.Element("artwork").Element("unlocked").Value) ?
 							achievement.Element("artwork").Element("unlocked").Value : achievement.Element("artwork").Element("locked").Value)
 							.Replace("https://live.xbox.com/Content/Images/HiddenAchievement.png", "");
@@ -73,7 +74,8 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 							.Replace("&quot;", "\"")
 							.Replace("&hellip;", "...")
 							.Replace("&eacute;", "é")
-							.Replace("&rsquo;", "'");
+							.Replace("&rsquo;", "'")
+							.Trim();
 						gameAchievement.Earned =
 							achievement.Element("unlocked").Value == "1" ?
 								(achievement.Element("unlockdate") != null && !string.IsNullOrWhiteSpace(achievement.Element("unlockdate").Value)
@@ -144,7 +146,8 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 							.Replace("&hellip;", "...")
 							.Replace("&amp;", "&")
 							.Replace("&auml;", "ä")
-							.Replace("&#039;", "'");
+							.Replace("&#039;", "'")
+							.Trim();
 						gameAchievement.Id = achievement.Element("id").Value;
 						gameAchievement.Image = (!string.IsNullOrWhiteSpace(achievement.Element("artwork").Element("unlocked").Value) ?
 							achievement.Element("artwork").Element("unlocked").Value : achievement.Element("artwork").Element("locked").Value)
@@ -156,7 +159,8 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 							.Replace("&quot;", "\"")
 							.Replace("&hellip;", "...")
 							.Replace("&eacute;", "é")
-							.Replace("&rsquo;", "'");
+							.Replace("&rsquo;", "'")
+							.Trim();
 						gameAchievement.Earned =
 							achievement.Element("unlocked").Value == "1" ?
 								(achievement.Element("unlockdate") != null && !string.IsNullOrWhiteSpace(achievement.Element("unlockdate").Value)
