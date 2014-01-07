@@ -181,7 +181,7 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 						gameAchievement.GameTitle = gameTitle;
 						gameAchievement.GameId = gameId;
 
-						if (achievement.Element("secret").Value == "1")
+						if (achievement.Element("secret").Value == "1" || achievement.Element("description").Value.StartsWith("This is a secret achievement."))
 						{
 							gameAchievement.UpdateHiddenAchievement(this.HiddenAchievementsDirectory);
 						}

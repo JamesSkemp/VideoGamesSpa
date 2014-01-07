@@ -31,7 +31,7 @@ namespace VideoGamesSpa.ApiParser.Models
 		/// <returns>True if the achievement was updated.</returns>
 		public bool UpdateHiddenAchievement(string xmlDirectory = null)
 		{
-			if (string.IsNullOrWhiteSpace(this.Title) && this.Earned.HasValue)
+			if ((string.IsNullOrWhiteSpace(this.Title) || this.Description.StartsWith("This is a secret achievement.")) && this.Earned.HasValue)
 			{
 				var hiddenAchievement = HiddenAchievement.ParseHiddenAchievementsXml(xmlDirectory)
 					.FirstOrDefault(a => a.GameId == this.GameId && a.Id == this.Id);
