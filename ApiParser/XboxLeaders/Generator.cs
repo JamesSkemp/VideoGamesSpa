@@ -93,7 +93,7 @@ namespace VideoGamesSpa.ApiParser.XboxLeaders
 						gameAchievement.GamerScore = achievement.Element("gamerscore").Value
 							.Replace("--", "0");
 
-						if (achievement.Element("secret").Value == "1")
+						if (achievement.Element("secret").Value == "1" || achievement.Element("description").Value.StartsWith("This is a secret achievement."))
 						{
 							gameAchievement.UpdateHiddenAchievement(achievement.Element("id").Value, game.Id, this.HiddenAchievementsDirectory);
 						}
