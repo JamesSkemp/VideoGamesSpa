@@ -81,6 +81,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\psn\NPWR01148_00.png" />
     <Content Include="Content\images\psnPic.png" />
     <Content Include="Content\images\psn\NPWR00071_00.png" />
     <Content Include="Content\images\psn\NPWR00116_00.png" />
