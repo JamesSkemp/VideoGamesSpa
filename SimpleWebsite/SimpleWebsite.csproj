@@ -81,6 +81,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\psn\NPWR00765_00.png" />
     <Content Include="Content\images\psn\NPWR01148_00.png" />
     <Content Include="Content\images\psnPic.png" />
     <Content Include="Content\images\psn\NPWR00071_00.png" />
@@ -248,6 +249,7 @@
     <Content Include="Content\images\psn\NPWR03959_00.png" />
     <Content Include="Content\images\psn\NPWR04063_00.png" />
     <Content Include="Content\images\psn\NPWR04102_00.png" />
+    <Content Include="Content\images\psn\NPWR04148_00.png" />
     <Content Include="Content\images\psn\NPWR04182_00.png" />
     <Content Include="Content\images\psn\NPWR04192_00.png" />
     <Content Include="Content\images\psn\NPWR04270_00.png" />
