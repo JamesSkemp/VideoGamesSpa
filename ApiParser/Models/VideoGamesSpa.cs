@@ -122,6 +122,7 @@ namespace VideoGamesSpa.ApiParser.Models
 							psnXmlSerializerGames.Serialize(writer, ((PsnWrapper.Generator)generator).Games);
 						}
 						JavaScriptSerializer serializerGames = new JavaScriptSerializer();
+						serializerGames.MaxJsonLength = Int32.MaxValue;
 						var contentsGames = serializerGames.Serialize(new { PsnGames = ((PsnWrapper.Generator)generator).Games });
 						File.WriteAllText(this.SpaDirectory + "_psnGames.xml" + ".json", contentsGames);
 						#endregion
