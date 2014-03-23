@@ -227,6 +227,7 @@
     <Content Include="Content\images\psn\NPWR02712_00.png" />
     <Content Include="Content\images\psn\NPWR02725_00.png" />
     <Content Include="Content\images\psn\NPWR02868_00.png" />
+    <Content Include="Content\images\psn\NPWR02941_00.png" />
     <Content Include="Content\images\psn\NPWR02944_00.png" />
     <Content Include="Content\images\psn\NPWR02972_00.png" />
     <Content Include="Content\images\psn\NPWR02978_00.png" />
@@ -257,10 +258,12 @@
     <Content Include="Content\images\psn\NPWR04375_00.png" />
     <Content Include="Content\images\psn\NPWR04472_00.png" />
     <Content Include="Content\images\psn\NPWR04479_00.png" />
+    <Content Include="Content\images\psn\NPWR04915_00.png" />
     <Content Include="Content\images\psn\NPWR05146_00.png" />
     <Content Include="Content\images\psn\NPWR05282_00.png" />
     <Content Include="Content\images\psn\NPWR05341_00.png" />
     <Content Include="Content\images\psn\NPWR05452_00.png" />
+    <Content Include="Content\images\psn\NPWR06037_00.png" />
     <Content Include="Content\images\xblPic.png" />
     <Content Include="Content\images\xbl\1096157146.jpg" />
     <Content Include="Content\images\xbl\1096157149.jpg" />
